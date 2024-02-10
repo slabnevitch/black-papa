@@ -1,0 +1,194 @@
+extends _misc/main
+
+block title
+	| Главная страница
+
+block content
+	div(data-scroll-container)
+		.person-view(data-scroll-section)
+			- var imgs = ['img/barbers/obidov.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/ab01.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/edu2.jpg', 'https://i.artfile.me/wallpaper/23-01-2011/1920x1080/nsort--ne-vybirat---devushki--ne-vybirat-292617.jpg'];
+			.swiper.person-view__big
+
+				.swiper-wrapper
+
+					each item in imgs
+						.swiper-slide
+							.person-view__box
+								- for(var i=0; i<5; i++)
+									div(class="person-view__segment person-view__segment--"+(i+1))
+										div(class="person-view__img _fit person-view__img--"+(i+1))
+											img._fit-img(src=item alt)
+
+
+				button.swiper-button-prev
+				button.swiper-button-next
+
+			.person-view__mini(data-scroll data-scroll-speed="1")
+				.swiper.person-view__thumb.thumb-person-view
+					.swiper-wrapper
+						each item in imgs
+							.swiper-slide
+								div(data-swiper-parallax-duration="1000" data-swiper-parallax-scale="1.5" data-swiper-parallax-x="100" class="_fit thumb-person-view__box")
+									img._fit-img(src=item alt)
+			
+			.person-view__cover(data-scroll data-scroll-speed="10" data-scroll-position="bottom")
+
+		section.cards(data-scroll-section)
+
+			.__wrapper
+				.wrapper
+					- for(var i=0; i<12; i++)
+						.card()
+		div(data-scroll-section)
+
+block page-scripts
+	//- SERVIVE FUNCTIONS==================
+
+	//- remove-class--------------------------
+	//- script(src="js/libs/service-functions/remove-class.js")
+
+	//- siblings--------------------------
+	//- script(src="js/libs/service-functions/siblings.js")
+
+	//- webp-detection--------------------------
+	//- script(src="js/libs/service-functions/webp-detection.js")
+
+	//- dropdown-toggle on touch devices--------------------------
+	//- script(src="js/libs/service-functions/dropdown-toggle.js")
+
+	//- isMobile--------------------------
+	//- script(src="js/libs/service-functions/mobileDetect.js")
+
+	//- fade--------------------------
+	//- fadeIn(document.querySelector('selector'), 500, 'flex');
+	//- fadeOut(document.querySelector('selector'), 500);
+	//- script(src="js/libs/service-functions/fade.js")
+
+	//- scrollDisable(надежное отключение скролла на ios--------------------------
+	//- script(src="js/libs/service-functions/scrollDisable.js")
+
+	//- scrollWidth(фикс прыгания стр-цы. при открытии модалки--------------------------
+	//- script(src="js/libs/service-functions/scrollWidth.js")
+
+	//- All in one file--------------------------
+	//- script(src="js/libs/service-functions/all-functions.js")
+
+
+	//- WITH JQUERY===================================
+	//- jquery--------------------------
+	//- script(src="js/libs/jquery/jquery-3.1.1.min.js")
+
+	//- jquery-UI--------------------------
+	//- script(src="js/libs/jquery-ui/jquery-ui.min.js")
+		
+	//- magnific-popup--------------------------
+	//- script(src="js/libs/magnific-popup/dist/jquery.magnific-popup.min.js")
+		
+	//- slick--------------------------
+	//- script(src="js/libs/slick/slick.min.js")
+		
+	//- slick-master (без лишних контейнеров)--------------------------
+	//- script(src="js/libs/slick-master/slick.js")
+
+	//- script(src='https://api-maps.yandex.ru/2.1/?apikey=1be0e242-a0f9-4c70-8d5c-f2f3df5c3e40&load=&lang=ru_RU' type='text/javascript')
+
+	//- superfish--------------------------
+	//- script(src="js/libs/superfish/dist/js/hoverIntent.js")
+	//- script(src="js/libs/superfish/dist/js/superfish.min.js")
+
+	//- end WITH JQUERY===================================
+
+
+	//- VANILLA JS===================================
+	//- dynamic-adaptive--------------------------
+	//- script(src="js/libs/dynamic-adaptive/da.min.js")
+		
+	//- slideout--------------------------
+	//- script(src="js/libs/slideout/slideout.js")
+
+	//- multilevel-panel--------------------------
+	//- script(src="js/libs/multilevel-panel/multilevel-panel.js")
+
+	//- multilevel-dropdown-menu--------------------------
+	//- script(src="js/libs/multilevel-dropdown/multidropdown.js")
+			
+	//- lazysizes--------------------------
+	//- USE: img.lazyload(data-src="img/unnamed.jpg" alt="alt")
+	//- iframe(frameborder="0" class="lazyload" allowfullscreen="" data-src="//www.youtube.com/embed/ZfV-aYdU4uE")
+
+	//- Plugins
+	//- script(src='js/libs/lazysizes/plugins/ls.unveilhooks.min.js')
+	//- (для lazy style="background-image:url()" data-bg="img/unnamed.jpg")
+
+	//- Основной скрипт
+	//- script(src="js/libs/lazysizes/lazysizes.min.js" async)	
+		
+	//- accordion--------------------------
+	//- script(src="js/libs/accordion/vanilla-accordion.js")
+		
+	//- tabs--------------------------
+	//- script(src="js/libs/tabs/tabs-pure.js")
+
+	//- tabs-accordion-combine--------------------------
+	//- script(src="js/libs/tabs-accordion-combine/tabs-accordion.js")
+		
+	//- micromodal--------------------------
+	//- script(src="js/libs/micromodal/micromodal.js")	
+	
+	//- locomotive-scroll--------------------------
+	script(src="js/libs/locomotive-scroll/dist/locomotive-scroll.min.js")
+		
+	//- swiper--------------------------
+	// script(src="js/libs/swiper/swiper-bundle.min.js")
+	script(src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js")
+
+
+	//- tiny-slider--------------------------
+	//- script(src="js/libs/tiny-slider/dist/tiny-slider.min.js")
+
+	//- wNumb--------------------------
+	//- script(src=path + "wnumb/wNumb.js")
+
+	//- noUiSlider--------------------------
+	//- script(src="js/libs/noUiSlider/nouislider.min.js")
+
+	//- iMask--------------------------
+	//- script(src="js/libs/imask/imask.js")
+
+	//- FormHandler--------------------------
+	//- script(src="js/libs/formhandler.js-1.1.2/dist/js/FormHandler.min.js")
+
+	//- ratings--------------------------
+	//- script(src="js/libs/rating/ratings.js")
+
+	//- scroll-to-sects--------------------------
+	//- script(src="js/libs/scroll-to-sects/scrolltosect.js")
+
+	//- tippy--------------------------
+	//- https://atomiks.github.io/tippyjs/
+	//- base using:  html: <button data-tippy-content="Tooltip">Text</button>; js: tippy('[data-tippy-content]');
+	//- script(src="js/libs/tippy/popper.min.js"")
+	//- script(src="js/libs/tippy/tippy-bundle.umd.js")
+
+	//- sticky-sidebar--------------------------
+	//- https://abouolia.github.io/sticky-sidebar/#usage
+	//- script(src="js/libs/sticky-sidebar/dist/resizeSensor.js")
+	//- script(src="js/libs/sticky-sidebar/dist/sticky-sidebar.min.js")
+
+	//- simplebar--------------------------
+	//- USE:	new SimpleBar(document.querySelector('mySelector'), { autoHide: false });
+	//- script(src="js/libs/simplebar/simplebar.min.js")
+		
+	//- fstdropdown (кастомный селект), исп-е.: <select data-searchdisable="true" class="fstdropdown-select">
+	//- script(src="js/libs/fstdropdown/fstdropdown.min.js")
+
+	//- baguetteBox-------------------------- use: https://github.com/feimosi/baguetteBox.js#usage
+	//- script(src="js/libs/baguetteBox/dist/baguetteBox.min.js")
+
+	//- svg4everybody--------------------------
+	//- script(type="text/javascript" src="js/libs/svg4everybody/svg4everybody.min.js" async onload="svg4everybody();")
+
+	//- counter--------------------------
+	//- script(src="js/libs/counter/counter.js")
+
+//- end VANILLA JS===================================

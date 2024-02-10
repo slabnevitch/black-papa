@@ -1,0 +1,150 @@
+.person-view{
+  height: 100vh;
+  // max-width: 1000px;
+  // margin: 0 auto;
+  // display: flex;
+ background-color: #000;
+  overflow: hidden;
+}
+.person-view__box{
+  position: relative;
+  // z-index: 2;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  transition: transform 1.2s ease;
+  will-change: transform;
+   transform: scale(1.5);
+  .zoom-out &{
+    transform: scale(1);
+  }
+  
+}
+.person-view__segment{
+  flex: 0 0 20%;
+  height: 100%;
+  transition: transform 0.5s ease;
+  overflow: hidden;
+  
+  .animation-active &{
+    transform: translateY(100%);
+    &--1{
+    // transform: translateY(100%)
+      transition-delay: 0.05s;
+      transition-duration: 0.5s;
+  }
+  &--2{
+ 
+    // transform: translateY(75%);
+    transition-delay: 0.1s;
+    transition-duration: 0.6s;
+  }
+  &--3{
+
+    // transform: translateY(50%);
+    transition-delay: 0.2s;
+    transition-duration: 0.7s;
+  }
+  &--4{
+    // transform: translateY(25%);
+    transition-delay: 0.3s;
+    transition-duration: 0.6s;
+  }
+  &--5{
+
+    // transform: translateY(10%);
+    transition-delay: 0.4s;
+    transition-duration: 0.7s;
+  }
+  }
+  
+}
+.person-view__img{
+  width: 500%;
+  aspect-ratio: auto;
+  height: 100%;
+  &--1{
+
+  }
+  &--2{
+    left: -100%;
+
+  }
+  &--3{
+    left: -200%;
+   
+  }
+  &--4{
+    left: -300%;
+
+  }
+  &--5{
+    left: -400%;
+
+  }
+}
+.person-view__slide{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.person-view__big{
+  height: 100%;
+//   .swiper-changes{
+//     .person-view__box{
+//       transform: scale(1);
+//     }
+
+//   }
+  &.swiper-fade .swiper-slide{
+    &.swiper-slide-active{
+      z-index: 99;
+    }
+    // transition-duration: 0s !important;
+    opacity: 1 !important;
+  }
+}
+.person-view__mini{
+  position: absolute;
+  background-color: #000;
+  bottom: -42px;
+  right: -234px;
+  width: 732px;
+  height: 407px;
+  z-index: 100;
+  overflow: hidden;
+  border-radius: 203px;
+  border: 1px solid #fff ;
+  
+  .thumb-person-view__box{
+    // transition: transform 0.5s;
+    // transform: scale(2);
+  }
+}
+.cards{
+  height: 100vh;
+  background-color: yellow;
+  padding-bottom: 100px;
+}
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+.card{
+  // height: 100vh;
+  aspect-ratio: 16/9;
+  background-color: gray;
+}
+.person-view__cover{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#000, .8);
+  z-index: 100;
+}
