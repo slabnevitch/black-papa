@@ -181,7 +181,7 @@
 		    sliderMoove('forward');
 		  }, 3000);
 		}
-		// swiperAutoplay();
+		swiperAutoplay();
 
 		document.querySelector('.person-view__prev').onclick = (e) => {
 		  clearInterval(slideChangeInterval);
