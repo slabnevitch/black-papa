@@ -2,9 +2,18 @@
   height: 100vh;
   // max-width: 1000px;
   // margin: 0 auto;
-  // display: flex;
+  display: flex;
+  align-items: flex-end;
+  // justify-content: space-between;
  background-color: #000;
   overflow: hidden;
+}
+.person-view__big{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 .person-view__box{
   position: relative;
@@ -109,36 +118,68 @@
 }
 .person-view__mini{
   position: absolute;
-  background-color: #000;
   bottom: -42px;
-  right: -234px;
-  width: 732px;
-  height: 407px;
-  z-index: 100;
-  overflow: hidden;
-  border-radius: 203px;
-  border: 1px solid #fff ;
+  right: 0;
+  z-index: 1;
   
   .thumb-person-view__box{
     // transition: transform 0.5s;
     // transform: scale(2);
   }
 }
-.cards{
-  height: 100vh;
-  background-color: yellow;
-  padding-bottom: 100px;
+.thumb-person-view__wrapper{
+  position: relative;
+  right: -234px;
+  width: 732px;
+  height: 407px;
+  overflow: hidden;
+  border-radius: 203px;
+  border: 1px solid #fff ;
+  background-color: #000;
+
 }
-.wrapper{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+.person-view__handlers{
+display: flex;
+justify-content: flex-end;
+gap: rem(24);
+margin-bottom: rem(29);
+padding-right: rem(52);
+font-family: 'Raleway', sans-serif;
+font-weight: 500;
+font-size: rem(13);
+
 }
-.card{
-  // height: 100vh;
-  aspect-ratio: 16/9;
-  background-color: gray;
+.person-view__prev{
+    @include but-null();
+    text-decoration: underline;
+    transition: all .4s ease;
+    transform-origin: bottom right;
+    color: #fff;
+
+    @media (any-hover: hover) { //только для устройств с ховером
+        cursor: pointer;
+        &:hover{
+          transform: scale(1.4);
+          // font-size: rem(16);
+        }
+      }
 }
+.person-view__next{
+  @include but-null();
+  text-decoration: underline;
+  transition: all .4s ease;
+  transform-origin: bottom left;
+  color: #fff;
+
+  @media (any-hover: hover) { //только для устройств с ховером
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.4);
+        // font-size: rem(16);
+      }
+    }
+}
+
 .person-view__cover{
   position: absolute;
   left: 0;
@@ -147,4 +188,115 @@
   height: 100%;
   background-color: rgba(#000, .8);
   z-index: 100;
+}
+
+.person-view__name{
+
+}
+.name-person-view{
+  // position: absolute;
+
+  margin-bottom: rem(60);
+  // margin-left: rem(164);
+  @include adaptive-value('margin-left', 164, 15, 1);
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+}
+.name-person-view__first{
+  line-height: 1;
+    color: $accent;
+    @include adaptive-value-rem('font-size', 150, 40, $maxWidth, $minWidth, 1);
+}
+.name-person-view__last{
+  line-height: 1;
+  color: #fff;
+  @include adaptive-value-rem('font-size', 150, 0, $maxWidth, $minWidth, 1);
+}
+.name-person-view__text{
+  margin-top: rem(15);
+  padding-left: rem(20);
+  max-width: rem(665);
+  font-weight: 500;
+  color: #fff;
+}
+.person-view__actions{
+  padding-left: rem(15);
+  // margin-left: auto;
+  @include adaptive-value-rem('margin-left', 288, 10, $maxWidth, $minWidth, 1);
+  margin-right: rem(54);
+  margin-bottom: rem(50);
+  position: relative;
+  z-index: 2;
+
+  .btn{
+    margin-bottom: rem(35);
+  }
+}
+.person-view__scroll{
+
+  @include but-null();
+  display: flex;
+  align-items: flex-end;
+  font-family: 'Railway', sans-serif;
+  font-weight: 500;
+  font-size: rem(24);
+  color: #fff;
+  text-decoration: underline;
+  white-space: nowrap;
+  .icon-download{
+    margin-left: rem(12);
+    position: relative;
+    top: rem(-1);
+    font-size: rem(25);
+    color: #fff;
+  }
+
+
+  @media (any-hover: hover) { //только для устройств с ховером
+      cursor: pointer;
+      &:hover{
+  
+      }
+    }
+}
+.person-works{
+  padding-top: rem(15);
+  height: 100vh;
+  // background-color: yellow;
+  padding-bottom: 100px;
+}
+.person-works__cards{
+  padding-top: rem(15);
+  padding-left: rem(37);
+  padding-bottom: rem(107);
+  border-left: 3px solid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  flex: 1 1 auto;
+}
+.person-works__card{
+  // height: 100vh;
+  aspect-ratio: 262/163;
+  border-radius: rem(70);
+  background-color: #D9D9D9;
+}
+.person-works__wrapper{
+  display: flex;
+}
+.person-works__text{
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(10);
+  padding-top: rem(15);
+  flex: 0 0 prc(438,1920);
+  font-family: 'Raleway', sans-serif;
+}
+.person-works__title{
+  font-weight: 500;
+  font-size: rem(24);
+}
+.person-works__p{
+  font-weight: 300;
 }

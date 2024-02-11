@@ -79,14 +79,20 @@
 	}
 	// End ibg class
 
+	// siedebar toggling
+	document.querySelector('.burger-sidebar__inner').onclick = function(e){
+		document.querySelector('.sidebar').classList.toggle('opened');
+	}
+	// END siedebar toggling
+
 	const scroll = new LocomotiveScroll({
 		    el: document.querySelector('[data-scroll-container]'),
 		    smooth: true
 		});
-		// document.getElementById('button').onclick = function() {
-		// 	scroll.scrollTo(document.querySelector('.cards'));
+		document.querySelector('.person-view__scroll').onclick = function() {
+			scroll.scrollTo(document.querySelector('.person-works'));
 
-		// }
+		}
 
 	document.addEventListener('DOMContentLoaded', function() {
 		console.log('DOMContentLoaded!');
@@ -177,7 +183,7 @@
 		}
 		// swiperAutoplay();
 
-		document.querySelector('.swiper-button-prev').onclick = (e) => {
+		document.querySelector('.person-view__prev').onclick = (e) => {
 		  clearInterval(slideChangeInterval);
 		   swiper.slidesEl.classList.add('swiper-changes');
 		  
@@ -186,7 +192,7 @@
 		  e.target.disabled = true;
 		  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
 		}
-		document.querySelector('.swiper-button-next').onclick = (e) => {
+		document.querySelector('.person-view__next').onclick = (e) => {
 		  clearInterval(slideChangeInterval);
 		   swiper.slidesEl.classList.add('swiper-changes');
 		  sliderMoove('forward');

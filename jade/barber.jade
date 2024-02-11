@@ -6,8 +6,14 @@ block title
 block content
 	div(data-scroll-container)
 		.person-view(data-scroll-section)
-			- var imgs = ['https://tmbarbershop.com/wp-content/uploads/2023/11/usl03.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/ab01.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/edu2.jpg', 'https://i.artfile.me/wallpaper/23-01-2011/1920x1080/nsort--ne-vybirat---devushki--ne-vybirat-292617.jpg'];
+			- var imgs = ['img/barbers/obidov.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/usl03.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/ab01.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/edu2.jpg', /*'https://i.artfile.me/wallpaper/23-01-2011/1920x1080/nsort--ne-vybirat---devushki--ne-vybirat-292617.jpg'*/];
+			.person-view__name.name-person-view(data-scroll data-scroll-speed="-1")
+				.name-person-view__first() РУСТАМ
+				.name-person-view__last() ОБИДОВ
+				p.name-person-view__text Тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут ту
+			
 			.swiper.person-view__big
+
 
 				.swiper-wrapper
 
@@ -19,26 +25,37 @@ block content
 										div(class="person-view__img _fit person-view__img--"+(i+1))
 											img._fit-img(src=item alt)
 
-
-				button.swiper-button-prev
-				button.swiper-button-next
+			.person-view__actions
+				button.btn(type="button") ЗАПИСАТЬСЯ
+					+icon('shape-circle')
+				button.person-view__scroll(type="button") Работы Pro.Barber'a
+					img.icon-download(src="img/icons-svg/download.svg" alt="alt")
 
 			.person-view__mini(data-scroll data-scroll-speed="1")
-				.swiper.person-view__thumb.thumb-person-view
-					.swiper-wrapper
-						each item in imgs
-							.swiper-slide
-								div(data-swiper-parallax-duration="1000" data-swiper-parallax-scale="1.5" data-swiper-parallax-x="100" class="_fit thumb-person-view__box")
-									img._fit-img(src=item alt)
+				.person-view__handlers
+					button.person-view__prev Предыдущий
+					button.person-view__next Следующий
+				
+				.thumb-person-view__wrapper
+					.swiper.person-view__thumb.thumb-person-view
+							.swiper-wrapper
+								each item in imgs
+									.swiper-slide
+										div(data-swiper-parallax-duration="1000" data-swiper-parallax-scale="1.5" data-swiper-parallax-x="100" class="_fit thumb-person-view__box")
+											img._fit-img(src=item alt)
 			
 			.person-view__cover(data-scroll data-scroll-speed="10" data-scroll-position="bottom")
 
-		section.cards(data-scroll-section)
-
-			.__wrapper
-				.wrapper
-					- for(var i=0; i<12; i++)
-						.card()
+		section.person-works(data-scroll-section)
+			.person-works__wrapper
+				.person-works__text
+					.person-works__title Выполненные работы
+					.person-works__p Работы с сентября по январь
+					.person-works__p Является Pro.Barber
+				.person-works__cards
+					- for(var i=0; i<20; i++)
+						.person-works__card()
+		
 		div(data-scroll-section)
 
 block page-scripts

@@ -29,6 +29,68 @@
   font-style: normal;
   font-display: block;
 }
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.icon-backward {
+  font-size: 2rem;
+  width: 1em;
+}
+
+.icon-burger {
+  font-size: 1.4rem;
+  width: 1.2857142857em;
+}
+
+.icon-calendar {
+  font-size: 3.4rem;
+  width: 0.9705882353em;
+}
+
+.icon-download {
+  font-size: 2.6rem;
+  width: 0.7692307692em;
+}
+
+.icon-home {
+  font-size: 3.3rem;
+  width: 1em;
+}
+
+.icon-loc {
+  font-size: 3.4rem;
+  width: 0.9705882353em;
+}
+
+.icon-place {
+  font-size: 3rem;
+  width: 0.9666666667em;
+}
+
+.icon-shape-circle {
+  font-size: 1.1rem;
+  width: 1em;
+}
+
+.icon-shield {
+  font-size: 3.4rem;
+  width: 0.9705882353em;
+}
+
+.icon-users {
+  font-size: 3.4rem;
+  width: 1.0294117647em;
+}
+
+.icon-wallet {
+  font-size: 3rem;
+  width: 1.1em;
+}
+
 /*--swiper--*/
 /**
  * Swiper 7.3.2
@@ -894,6 +956,44 @@ textarea {
 
 /*--------------------END adjustment----------------------*/
 /*--------------------ui----------------------*/
+.btn {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 2.75rem;
+  border: none;
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+  padding: 0.25rem 3.35rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border-radius: 0.2rem;
+  text-align: center;
+  position: relative;
+  outline: none;
+  transition: background-color 0.3s ease;
+  font-family: "Open-sans", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #fe7d32;
+}
+.btn:active {
+  background-color: #fc5d01;
+}
+.btn-fw {
+  width: 100%;
+}
+.btn .icon {
+  margin-left: 0.4rem;
+  font-size: 0.4665rem;
+}
+
 /*--------------------END ui----------------------*/
 /*--------------------footer----------------------*/
 /*--------------------END footer----------------------*/
@@ -901,8 +1001,20 @@ textarea {
 /*--------------------END header----------------------*/
 .person-view {
   height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: end;
+  align-items: flex-end;
   background-color: #000;
   overflow: hidden;
+}
+
+.person-view__big {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 .person-view__box {
@@ -992,33 +1104,72 @@ textarea {
 
 .person-view__mini {
   position: absolute;
-  background-color: #000;
   bottom: -42px;
+  right: 0;
+  z-index: 1;
+}
+.thumb-person-view__wrapper {
+  position: relative;
   right: -234px;
   width: 732px;
   height: 407px;
-  z-index: 100;
   overflow: hidden;
   border-radius: 203px;
   border: 1px solid #fff;
-}
-.cards {
-  height: 100vh;
-  background-color: yellow;
-  padding-bottom: 100px;
+  background-color: #000;
 }
 
-.wrapper {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(320px, 1fr))[auto-fit];
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+.person-view__handlers {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  gap: 1.2rem;
+  margin-bottom: 1.45rem;
+  padding-right: 2.6rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 0.65rem;
 }
 
-.card {
-  aspect-ratio: 16/9;
-  background-color: gray;
+.person-view__prev {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  transition: all 0.4s ease;
+  -ms-transform-origin: bottom right;
+  transform-origin: bottom right;
+  color: #fff;
+}
+@media (any-hover: hover) {
+  .person-view__prev {
+    cursor: pointer;
+  }
+  .person-view__prev:hover {
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+.person-view__next {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  transition: all 0.4s ease;
+  -ms-transform-origin: bottom left;
+  transform-origin: bottom left;
+  color: #fff;
+}
+@media (any-hover: hover) {
+  .person-view__next {
+    cursor: pointer;
+  }
+  .person-view__next:hover {
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+  }
 }
 
 .person-view__cover {
@@ -1030,4 +1181,315 @@ textarea {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 100;
 }
+
+.name-person-view {
+  margin-bottom: 3rem;
+  margin-left: 164px;
+  z-index: 2;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+}
+@media (max-width: 1602px) {
+  .name-person-view {
+    margin-left: calc(15px + 149 * ((100vw - 320px) / 1282));
+  }
+}
+
+.name-person-view__first {
+  line-height: 1;
+  color: #FE6D19;
+  font-size: 7.5rem;
+}
+@media (max-width: 100.125em) {
+  .name-person-view__first {
+    font-size: clamp( 2rem , 0.9rem  +  6.875vw , 7.5rem );
+  }
+}
+
+.name-person-view__last {
+  line-height: 1;
+  color: #fff;
+  font-size: 7.5rem;
+}
+@media (max-width: 100.125em) {
+  .name-person-view__last {
+    font-size: clamp( 0rem , -1.5rem  +  9.375vw , 7.5rem );
+  }
+}
+
+.name-person-view__text {
+  margin-top: 0.75rem;
+  padding-left: 1rem;
+  max-width: 33.25rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.person-view__actions {
+  padding-left: 0.75rem;
+  margin-left: 14.4rem;
+  margin-right: 2.7rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 100.125em) {
+  .person-view__actions {
+    margin-left: clamp( 0.5rem , -2.28rem  +  17.375vw , 14.4rem );
+  }
+}
+.person-view__actions .btn {
+  margin-bottom: 1.75rem;
+}
+
+.person-view__scroll {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  font-family: "Railway", sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #fff;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+.person-view__scroll .icon-download {
+  margin-left: 0.6rem;
+  position: relative;
+  top: -0.05rem;
+  font-size: 1.25rem;
+  color: #fff;
+}
+@media (any-hover: hover) {
+  .person-view__scroll {
+    cursor: pointer;
+  }
+}
+
+.person-works {
+  padding-top: 0.75rem;
+  height: 100vh;
+  padding-bottom: 100px;
+}
+
+.person-works__cards {
+  padding-top: 0.75rem;
+  padding-left: 1.85rem;
+  padding-bottom: 5.35rem;
+  border-left: 3px solid;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.person-works__card {
+  aspect-ratio: 262/163;
+  border-radius: 3.5rem;
+  background-color: #D9D9D9;
+}
+
+.person-works__wrapper {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.person-works__text {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  padding-top: 0.75rem;
+  -ms-flex: 0 0 22.8125%;
+  flex: 0 0 22.8125%;
+  font-family: "Raleway", sans-serif;
+}
+
+.person-works__title {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.person-works__p {
+  font-weight: 300;
+}
+
+/*--------------------sidebar----------------------*/
+.sidebar {
+  z-index: 99;
+  position: fixed;
+  width: 6rem;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #1E1E1E;
+  transition: width 0.4s ease-in;
+}
+.sidebar.opened {
+  width: 14.45rem;
+}
+
+.sidebar__header {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.sidebar__logo {
+  height: 3.85rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 1.45rem;
+}
+.sidebar__logo img {
+  max-width: 3.1rem;
+  max-height: 1.5rem;
+}
+
+.burger-sidebar {
+  margin-bottom: 2.1rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 0.5rem;
+}
+
+.burger-sidebar__inner {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  height: 1rem;
+  width: 1rem;
+  display: -ms-flexbox;
+  display: flex;
+  column-gap: 0.1rem;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+.burger-sidebar__inner .icon {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  color: #fff;
+  transition: all 0.5s;
+}
+.burger-sidebar__inner .icon-burger {
+  font-size: 0.75rem;
+}
+.opened .burger-sidebar__inner .icon-burger {
+  margin-left: -1.05rem;
+}
+.burger-sidebar__inner .icon-backward {
+  font-size: 1rem;
+}
+@media (any-hover: hover) {
+  .burger-sidebar__inner {
+    cursor: pointer;
+  }
+}
+
+.menu-sidebar {
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.menu-sidebar__item {
+  list-style-type: none;
+}
+
+.menu-sidebar__link {
+  width: 100%;
+  position: relative;
+  color: #fff;
+  height: 3.3rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.25rem 0.25rem 0.25rem 2.25rem;
+}
+.menu-sidebar__link .icon {
+  position: relative;
+  z-index: 2;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.2s;
+}
+@media (any-hover: hover) {
+  .menu-sidebar__link {
+    cursor: pointer;
+  }
+  .menu-sidebar__link:hover .menu-sidebar__name {
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    background-color: #FE6D19;
+  }
+}
+
+.menu-sidebar__name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 5.5rem;
+  padding-right: 1.5rem;
+  min-width: 13.65rem;
+  -ms-transform: translateX(-150%);
+  transform: translateX(-150%);
+  transition: transform 0.4s ease;
+  border-radius: 0 1rem 1rem 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.opened .menu-sidebar__name {
+  background-color: transparent;
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.menu-sidebar__link--activee .icon {
+  color: #FE6D19;
+}
+@media (any-hover: hover) {
+  .menu-sidebar__link--activee {
+    cursor: pointer;
+  }
+  .menu-sidebar__link--activee:hover .icon {
+    color: #fff;
+  }
+}
+
+.sidebar__bottom {
+  padding-left: 29px;
+  margin-top: auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  margin-bottom: 1.2rem;
+}
+
+/*--------------------END sidebar----------------------*/
 /*# sourceMappingURL=maps/main.css.map */

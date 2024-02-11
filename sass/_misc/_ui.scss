@@ -1,35 +1,43 @@
 /*--------------------ui----------------------*/
 .btn{
-//   display: inline-flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: rem(50);
-//   border: none;
-//   color: #fff;
-//   text-decoration: none;
-//   background-color: $accent;
-//   padding: rem(5) rem(15);
-//   font-size: rem(13);
-//   text-transform: uppercase;
-//   border-radius: rem(2);
-//   text-align: center;
-//   position: relative;
-//   outline: none;
-//   transition: background-color .1s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: rem(55);
+  border: none;
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+  padding: rem(5) rem(67);
+  font-size: rem(16);
+  text-transform: uppercase;
+  border-radius: rem(4);
+  text-align: center;
+  position: relative;
+  outline: none;
+  transition: background-color .3s ease;
+  font-family: 'Open-sans', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
 	
-//   &:hover{
-//      background-color: lighten($accent, 5%);
-//   }
+  &:hover{
+     background-color: lighten($accent, 5%);
+  }
 		
-//   &:active{
-//    background-color: darken($accent, 5%);
-//   }
+  &:active{
+   background-color: darken($accent, 5%);
+  }
   
-//   &-fw{
-//    width: 100%;
-//   }
+  &-fw{
+   width: 100%;
+  }
+
+  .icon{
+  	margin-left: rem(8);
+  	font-size: rem(9.33);
+  }
    
-// }
+}
 
 // .toggle-mnu{
 // 	position: fixed;
@@ -87,6 +95,6 @@
 
 //     transform: rotate(-45deg) translate(rem(6), rem(-7));
 //   } 
-} 
+// } 
 
 /*--------------------END ui----------------------*/ 
