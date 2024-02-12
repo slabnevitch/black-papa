@@ -181,6 +181,7 @@ font-size: rem(13);
 }
 
 .person-view__cover{
+  visibility: hidden;
   position: absolute;
   left: 0;
   top: 0;
@@ -188,6 +189,13 @@ font-size: rem(13);
   height: 100%;
   background-color: rgba(#000, .8);
   z-index: 100;
+  opacity: 0;
+  transition: all 1s;
+
+  &.covered{
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .person-view__name{
@@ -262,9 +270,13 @@ font-size: rem(13);
 }
 .person-works{
   padding-top: rem(15);
-  height: 100vh;
+  // min-height: 100vh;
   // background-color: yellow;
   padding-bottom: 100px;
+}
+.person-works__folio{
+   width: calc(100% - prc(438,1920));
+
 }
 .person-works__cards{
   padding-top: rem(15);
@@ -274,7 +286,6 @@ font-size: rem(13);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  flex: 1 1 auto;
 }
 .person-works__card{
   // height: 100vh;
@@ -299,4 +310,7 @@ font-size: rem(13);
 }
 .person-works__p{
   font-weight: 300;
+}
+.works-swiper, .person-works__slider{
+  min-width: 0;
 }

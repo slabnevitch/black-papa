@@ -85,18 +85,64 @@
 	}
 	// END siedebar toggling
 
-	const scroll = new LocomotiveScroll({
-		    el: document.querySelector('[data-scroll-container]'),
-		    smooth: true
-		});
-		document.querySelector('.person-view__scroll').onclick = function() {
-			scroll.scrollTo(document.querySelector('.person-works'));
-
-		}
 
 	document.addEventListener('DOMContentLoaded', function() {
 		console.log('DOMContentLoaded!');
 		
+
+		  function ScrollUpdateDelay() {
+		  	setTimeout(function(){ scroll.update(); }, 500);
+
+		  }
+
+		  // ScrollUpdateDelay();
+	const scroll = new LocomotiveScroll({
+		    el: document.querySelector('[data-scroll-container]'),
+		    smooth: true
+		    // scrollFromAnywhere: true,
+		    // resetNativeScroll: true
+		    // offset: ['100%', 0]
+		});
+		document.querySelector('.person-view__scroll').onclick = function() {
+			console.log(document.querySelector('.person-works__slider').getBoundingClientRect().top)
+			var coord = document.querySelector('.person-works__slider').getBoundingClientRect().top;
+			scroll.scrollTo(document.querySelector('.person-works__slider').getBoundingClientRect().height, {
+				offset: 50, 
+				duration: 500,
+				callback: function() {
+					document.querySelector('.person-view__cover').classList.add('covered');
+				}
+			});
+
+		}
+	scroll.on('scroll', (func, args, obj) => {
+   // this[func]();
+
+   // console.log('call');
+   // console.log(func);
+   if(typeof func.currentElements['hey'] === 'object') {
+		if(func.delta.y === 0){
+			document.querySelector('.person-view__cover').classList.remove('covered');
+		}
+	    }
+	});
+
+
+// 	scroll.on('scroll', (args) => {
+//     console.log('scroll')
+//     if(typeof args.currentElements['hey'] === 'object') {
+//         let progress = args.currentElements['hey'].progress;
+//         console.log(progress);
+//         // ouput log example: 0.34
+//         // gsap example : myGsapAnimation.progress(progress);
+//     }
+// });
+
+// 	scroll.on('call', (func, args, obj) => {
+//    // this[func]();
+//    console.log(args);
+//    console.log(obj);
+// });
 		const thumbSwiper = new Swiper('.person-view__thumb', {
 		  loop: true,
 		  // effect: "slide",
@@ -308,5 +354,72 @@
 		    }
 		  }
 		}
+
+		//---------------Swiper
+		if(document.querySelector('.works-swiper') !== null){
+		  var cardsSwiper = new Swiper('.works-swiper', {
+		  /*
+			effect: 'fade',
+			fadeEffect: {//при отсутствии плавного перехода - расскомментировать соотв-ю. строку в adjustment.scss
+			    crossFade: true
+			  },
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+			observer: true,
+			observeParents: true,
+
+			//freeMode: true,// в сочетании с mousewheel дает возможность прокручивать стр-цу. после докручивания слайдера до начала или конца колесом мыши
+			slidesPerView: 5,
+			//spaceBetween: 0,
+			//autoHeight: true,
+			//speed: 800,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+			  // direction: 'vertical',
+			  loop: true,
+			  watchSlidesProgress: true,//предотвращает прокрутку слайдов при клике на ссылку внутри слайда
+			//   breakpoints: {
+			//     // when window width is >= 320px
+			//     320: {
+			//     	slidesPerView: 2,
+			//     	spaceBetween: 20
+			//     },
+			//     // when window width is >= 480px
+			//     480: {
+			//     	slidesPerView: 3,
+			//     	spaceBetween: 30
+			//     },
+			//     // when window width is >= 640px
+			//     640: {
+			//     	slidesPerView: 4,
+			//     	spaceBetween: 40
+			//     }
+			// },
+
+
+			  // Navigation arrows
+			  navigation: {
+			  	nextEl: '.swiper-button-next',
+			  	prevEl: '.swiper-button-prev',
+			  },
+
+			});
+		}
+		//---------------END Swiper
+
+		// var waypoint = new Waypoint({
+		//   element: document.querySelector('.person-works'),
+		//   handler: function(direction) {
+		//     alert('Scrolled to waypoint!')
+		//   },
+		//    context: document.querySelector('.has-scroll-init')
+		//    // offset: '80%'
+		// });
 	});
 })();

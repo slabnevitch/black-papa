@@ -247,7 +247,6 @@
 }
 
 .swiper-centered.swiper-horizontal > .swiper-wrapper > .swiper-slide:first-child {
-  -webkit-margin-start: var(--swiper-centered-offset-before);
   margin-inline-start: var(--swiper-centered-offset-before);
 }
 
@@ -258,7 +257,6 @@
 }
 
 .swiper-centered.swiper-vertical > .swiper-wrapper > .swiper-slide:first-child {
-  -webkit-margin-before: var(--swiper-centered-offset-before);
   margin-block-start: var(--swiper-centered-offset-before);
 }
 
@@ -1173,6 +1171,7 @@ textarea {
 }
 
 .person-view__cover {
+  visibility: hidden;
   position: absolute;
   left: 0;
   top: 0;
@@ -1180,6 +1179,12 @@ textarea {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 100;
+  opacity: 0;
+  transition: all 1s;
+}
+.person-view__cover.covered {
+  visibility: visible;
+  opacity: 1;
 }
 
 .name-person-view {
@@ -1272,8 +1277,11 @@ textarea {
 
 .person-works {
   padding-top: 0.75rem;
-  height: 100vh;
   padding-bottom: 100px;
+}
+
+.person-works__folio {
+  width: 77.1875%;
 }
 
 .person-works__cards {
@@ -1286,8 +1294,6 @@ textarea {
   -ms-grid-columns: (minmax(260px, 1fr))[auto-fit];
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
 }
 
 .person-works__card {
@@ -1320,6 +1326,10 @@ textarea {
 
 .person-works__p {
   font-weight: 300;
+}
+
+.works-swiper, .person-works__slider {
+  min-width: 0;
 }
 
 /*--------------------sidebar----------------------*/
