@@ -202,21 +202,23 @@ font-size: rem(13);
 
 }
 .name-person-view{
-  // position: absolute;
-
-  margin-bottom: rem(60);
-  // margin-left: rem(164);
-  @include adaptive-value('margin-left', 164, 15, 1);
+  position: absolute;
+  bottom: rem(60);
+  left: rem(164);
+  // @include adaptive-value('margin-left', 164, 15, 1);
   z-index: 2;
   font-family: 'Inter', sans-serif;
   font-weight: 900;
+  overflow: hidden;
 }
 .name-person-view__first{
+
   line-height: 1;
     color: $accent;
     @include adaptive-value-rem('font-size', 150, 40, $maxWidth, $minWidth, 1);
 }
 .name-person-view__last{
+  animation-delay: 0.2s;
   line-height: 1;
   color: #fff;
   @include adaptive-value-rem('font-size', 150, 0, $maxWidth, $minWidth, 1);

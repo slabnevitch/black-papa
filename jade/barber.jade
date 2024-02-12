@@ -6,24 +6,22 @@ block title
 block content
 	div(data-scroll-container)#suka
 		.person-view(data-scroll-section)
-			- var imgs = ['img/barbers/obidov.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/usl03.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/ab01.jpg', 'https://tmbarbershop.com/wp-content/uploads/2023/11/edu2.jpg', /*'https://i.artfile.me/wallpaper/23-01-2011/1920x1080/nsort--ne-vybirat---devushki--ne-vybirat-292617.jpg'*/];
-			.person-view__name.name-person-view(data-scroll data-scroll-speed="-1")
-				.name-person-view__first() РУСТАМ
-				.name-person-view__last() ОБИДОВ
-				p.name-person-view__text Тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут ту
+			- var imgs = [{name:'РУСТАМ', lastname: 'ОБИДОВ', img: 'img/barbers/obidov.jpg'}, {name:'МЕХА', lastname: 'САХАДАТОВ', img: 'https://tmbarbershop.com/wp-content/uploads/2023/11/usl03.jpg'}, {name:'АЛЕНА', lastname: 'АВЕРОЧКИНА', img:'https://tmbarbershop.com/wp-content/uploads/2023/11/ab01.jpg'} /*'https://tmbarbershop.com/wp-content/uploads/2023/11/edu2.jpg'/*, /*'https://i.artfile.me/wallpaper/23-01-2011/1920x1080/nsort--ne-vybirat---devushki--ne-vybirat-292617.jpg'*/];
 			
 			.swiper.person-view__big
-
-
 				.swiper-wrapper
-
 					each item in imgs
 						.swiper-slide
 							.person-view__box
 								- for(var i=0; i<5; i++)
 									div(class="person-view__segment person-view__segment--"+(i+1))
 										div(class="person-view__img _fit person-view__img--"+(i+1))
-											img._fit-img(src=item alt)
+											img._fit-img(src=item.img alt=item.name)
+
+							.person-view__name.name-person-view(data-scroll data-scroll-speed="-1")
+								.name-person-view__first.animated.rotateOutUpLeft()= item.name
+								.name-person-view__last.animated.rotateOutUpLeft()= item.lastname
+								p.name-person-view__text Тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут тут ту
 
 			.person-view__actions
 				button.btn(type="button") ЗАПИСАТЬСЯ
@@ -42,7 +40,7 @@ block content
 								each item in imgs
 									.swiper-slide
 										div(data-swiper-parallax-duration="1000" data-swiper-parallax-scale="1.5" data-swiper-parallax-x="100" class="_fit thumb-person-view__box")
-											img._fit-img(src=item alt)
+											img._fit-img(src=item.img alt)
 			
 			.person-view__cover
 				//- (data-scroll-call="testEvent" data-scroll data-scroll-speed="1" data-scroll-position="bottom")

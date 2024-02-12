@@ -143,6 +143,7 @@
 		      // swiper.slidesEl.querySelector('.swiper-slide-prev').style.zIndex = '97';
 		      swiper.slidesEl.querySelector('.swiper-slide-next').style.zIndex = '98';
 		      swiper.slidesEl.querySelector('.swiper-slide-active').classList.add('zoom-out');
+		      animateNameShow(swiper.activeIndex);
 		    },
 		  }
 		  
@@ -152,6 +153,45 @@
 		let slideChangeInterval;
 
 		thumbSwiper.slideTo(1);
+
+		function animateNameShow(animatedSide){
+			setTimeout(function() {
+			      
+				[...swiper.slides[animatedSide].querySelectorAll('.name-person-view__first, .name-person-view__last')]
+				.forEach((slide) => {
+					// if(slide === animatedSide){
+					// swiper.slidesEl.querySelector('.swiper-slide-active').querySelector('selectors: DOMString').classList.remove('rotateOutUpLeft');
+					// swiper.slidesEl.querySelector('.swiper-slide-active').querySelector('selectors: DOMString').classList.add('rotateInUpLeft');
+						slide.classList.remove('rotateOutUpLeft');
+						slide.classList.add('rotateInUpLeft');
+
+					// }
+		      	});
+
+		      	[...swiper.slides].forEach((slide, i) => {
+					if(i !== animatedSide){
+					// swiper.slidesEl.querySelector('.swiper-slide-active').querySelector('selectors: DOMString').classList.remove('rotateOutUpLeft');
+					// swiper.slidesEl.querySelector('.swiper-slide-active').querySelector('selectors: DOMString').classList.add('rotateInUpLeft');
+						// animateNameHide(i);
+
+					}
+		      	});
+
+		      }, 1500)
+		}
+		function animateNameHide(animatedSide){
+			// setTimeout(function() {
+			      console.log(swiper.slides[animatedSide]);
+				[...swiper.slides[animatedSide].querySelectorAll('.name-person-view__first, .name-person-view__last')]
+				.forEach((slide) => {
+						console.log(slide.textContent)
+						slide.classList.remove('rotateInUpLeft');
+						slide.classList.add('rotateOutUpLeft');
+
+		      	});
+
+		      // }, 1500)
+		}
 
 		function swiperAutoplay(){
 		  slideChangeInterval = setInterval(() => {
@@ -165,8 +205,9 @@
 		   swiper.slidesEl.classList.add('swiper-changes');
 		  
   			if(swiper.activeIndex > 0){
+  				animateNameHide(swiper.activeIndex);
 			  sliderMoove('back');
-			  
+			 
 			  e.target.disabled = true;
 			  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
 			
@@ -175,11 +216,17 @@
 		document.querySelector('.person-view__next').onclick = (e) => {
 		  clearInterval(slideChangeInterval);
 		   swiper.slidesEl.classList.add('swiper-changes');
-
+			  console.log('index in Next' + swiper.activeIndex)
 		   if(swiper.activeIndex <= swiper.slides.length - 1){
+
+			   animateNameHide(swiper.activeIndex);
 			  sliderMoove('forward');
 			  e.target.disabled = true;
-			  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
+			  setTimeout(() => {
+			  	
+			  	// animateNameShow(swiper.activeIndex);
+			  	e.target.disabled = false;
+			  },  sliderArrowDelay);
 		   }
 		} 
 
@@ -247,8 +294,18 @@
 		});
 
 		function changeSlidersIndex(direction){
-		  console.log(swiper.slides.length);
-		  console.log(swiper.activeIndex);
+		  // console.log(swiper.slides.length);
+		  console.log('in cange ' + swiper.activeIndex);
+			animateNameShow(swiper.activeIndex);
+			// [...swiper.slides].forEach((slide, i) => {
+			// 		if(i !== swiper.activeIndex - 1){
+				
+			// 			animateNameHide(i);
+
+			// 		}
+		    //   	});
+
+		  
 		  if(swiper.activeIndex == 0 && direction === 'back'){
 		    swiper.slides[swiper.slides.length - 1].style.zIndex = '98';
 		    swiper.slidesEl.querySelector('[data-swiper-slide-index="'+(swiper.activeIndex+1)+'"]').style.zIndex = '97';

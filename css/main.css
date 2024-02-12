@@ -1652,6 +1652,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .swiper-centered.swiper-horizontal > .swiper-wrapper > .swiper-slide:first-child {
+  -webkit-margin-start: var(--swiper-centered-offset-before);
   margin-inline-start: var(--swiper-centered-offset-before);
 }
 
@@ -1662,6 +1663,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .swiper-centered.swiper-vertical > .swiper-wrapper > .swiper-slide:first-child {
+  -webkit-margin-before: var(--swiper-centered-offset-before);
   margin-block-start: var(--swiper-centered-offset-before);
 }
 
@@ -2593,16 +2595,13 @@ textarea {
 }
 
 .name-person-view {
-  margin-bottom: 3rem;
-  margin-left: 164px;
+  position: absolute;
+  bottom: 3rem;
+  left: 8.2rem;
   z-index: 2;
   font-family: "Inter", sans-serif;
   font-weight: 900;
-}
-@media (max-width: 1602px) {
-  .name-person-view {
-    margin-left: calc(15px + 149 * ((100vw - 320px) / 1282));
-  }
+  overflow: hidden;
 }
 
 .name-person-view__first {
@@ -2617,6 +2616,7 @@ textarea {
 }
 
 .name-person-view__last {
+  animation-delay: 0.2s;
   line-height: 1;
   color: #fff;
   font-size: 7.5rem;
