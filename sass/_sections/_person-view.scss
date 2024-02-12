@@ -293,19 +293,36 @@ font-size: rem(13);
   // min-height: 100vh;
   // background-color: yellow;
   padding-bottom: 100px;
+  @include max-screen(em($maxWidth)){
+    padding-left: rem(120);
+  }
 }
 .person-works__folio{
    width: calc(100% - prc(438,1920));
+  padding-left: rem(37);
+  border-left: 3px solid;
 
 }
 .person-works__cards{
   padding-top: rem(15);
-  padding-left: rem(37);
   padding-bottom: rem(107);
-  border-left: 3px solid;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  display: flex;
+  @include  flex-cols-gap(30, $rowgap: 48, $width: 5, $points: ($lg: '',
+$md: '',
+$sm: '',
+$xs: '',
+$xss: '',
+$xsss: '',
+$min: '',
+$mins: ''),
+$columnClass: 'person-works__card');
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  // gap: 30px;
+  .person-works__card{
+    flex-grow: 1;
+
+  }
 }
 .person-works__card{
   // height: 100vh;
@@ -319,10 +336,17 @@ font-size: rem(13);
 .person-works__text{
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   row-gap: rem(10);
   padding-top: rem(15);
+  padding-right: rem(20);
   flex: 0 0 prc(438,1920);
   font-family: 'Raleway', sans-serif;
+}
+.person-works__textbox{
+  display: grid;
+
+  row-gap: rem(10);
 }
 .person-works__title{
   font-weight: 500;
@@ -332,5 +356,6 @@ font-size: rem(13);
   font-weight: 300;
 }
 .works-swiper, .person-works__slider{
+  margin-bottom: rem(40);
   min-width: 0;
 }

@@ -380,7 +380,7 @@
 			centeredSlides: true,
 			//freeMode: true,// в сочетании с mousewheel дает возможность прокручивать стр-цу. после докручивания слайдера до начала или конца колесом мыши
 			slidesPerView: 5,
-			//spaceBetween: 0,
+			spaceBetween: 30,
 			//autoHeight: true,
 			// speed: 3000,
 			//touchRatio: 0,
