@@ -96,36 +96,7 @@
 		  }
 
 		  // ScrollUpdateDelay();
-	const scroll = new LocomotiveScroll({
-		    el: document.querySelector('[data-scroll-container]'),
-		    smooth: true
-		    // scrollFromAnywhere: true,
-		    // resetNativeScroll: true
-		    // offset: ['100%', 0]
-		});
-		document.querySelector('.person-view__scroll').onclick = function() {
-			console.log(document.querySelector('.person-works__slider').getBoundingClientRect().top)
-			var coord = document.querySelector('.person-works__slider').getBoundingClientRect().top;
-			scroll.scrollTo(document.querySelector('.person-works__slider').getBoundingClientRect().height, {
-				offset: 50, 
-				duration: 500,
-				callback: function() {
-					document.querySelector('.person-view__cover').classList.add('covered');
-				}
-			});
-
-		}
-	scroll.on('scroll', (func, args, obj) => {
-   // this[func]();
-
-   // console.log('call');
-   // console.log(func);
-   if(typeof func.currentElements['hey'] === 'object') {
-		if(func.delta.y === 0){
-			document.querySelector('.person-view__cover').classList.remove('covered');
-		}
-	    }
-	});
+	
 
 
 // 	scroll.on('scroll', (args) => {
@@ -154,32 +125,8 @@
 		  fadeEffect: {
 		    crossFade: true
 		  }
-		  // effect: "creative",
-		      // creativeEffect: {
-		      //   prev: {
-		      //     // shadow: true,
-		      //     translate: ["-50%", 0, -200],
-		      //   },
-		      //   next: {
-		      //     // shadow: true,
-		      //     translate: ["80%", 0, -200],
-		      //   },
-		      // },
-		      //  prev: {
-		      //     shadow: true,
-		      //     translate: ["-20%", 0, -1],
-		      //   },
-		      //   next: {
-		      //     shadow: true,
-		      //     translate: ["100%", 0, 0],
-		      //   }
-		      // }
-		  
-		  
 		});
 		const swiper = new Swiper('.person-view__big', {
-		  // Optional parameters
-		  // direction: 'vertical',
 		  loop: true,
 		  effect: 'fade',
 		  allowTouchMove: false,
@@ -190,22 +137,6 @@
 		  // delay: 6000,
 		  // autoplay: true,
 
-		  // If we need pagination
-		  pagination: {
-		    el: '.swiper-pagination',
-		  },
-
-		  // Navigation arrows
-		  // navigation: {
-		  //   clickable: true,
-		  //   nextEl: '.swiper-button-next',
-		  //   prevEl: '.swiper-button-prev',
-		  // },
-
-		  // And if we need scrollbar
-		  scrollbar: {
-		    el: '.swiper-scrollbar',
-		  },
 		   on: {
 		    afterInit: function (swiper) {
 		      console.log(swiper.slidesEl);
@@ -233,17 +164,23 @@
 		  clearInterval(slideChangeInterval);
 		   swiper.slidesEl.classList.add('swiper-changes');
 		  
-		  sliderMoove('back');
-		  
-		  e.target.disabled = true;
-		  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
+  			if(swiper.activeIndex > 0){
+			  sliderMoove('back');
+			  
+			  e.target.disabled = true;
+			  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
+			
+			}
 		}
 		document.querySelector('.person-view__next').onclick = (e) => {
 		  clearInterval(slideChangeInterval);
 		   swiper.slidesEl.classList.add('swiper-changes');
-		  sliderMoove('forward');
-		  e.target.disabled = true;
-		  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
+
+		   if(swiper.activeIndex <= swiper.slides.length - 1){
+			  sliderMoove('forward');
+			  e.target.disabled = true;
+			  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
+		   }
 		} 
 
 		function sliderMoove(direction){
@@ -370,19 +307,20 @@
 			*/
 			observer: true,
 			observeParents: true,
-
+			centered: 'auto',
+			centeredSlides: true,
 			//freeMode: true,// в сочетании с mousewheel дает возможность прокручивать стр-цу. после докручивания слайдера до начала или конца колесом мыши
 			slidesPerView: 5,
 			//spaceBetween: 0,
 			//autoHeight: true,
-			//speed: 800,
+			// speed: 3000,
 			//touchRatio: 0,
 			//simulateTouch: false,
 			//loop: true,
 			//preloadImages: false,
 			//lazy: true,
 			  // direction: 'vertical',
-			  loop: true,
+			  // loop: true,
 			  watchSlidesProgress: true,//предотвращает прокрутку слайдов при клике на ссылку внутри слайда
 			//   breakpoints: {
 			//     // when window width is >= 320px
@@ -413,13 +351,45 @@
 		}
 		//---------------END Swiper
 
-		// var waypoint = new Waypoint({
-		//   element: document.querySelector('.person-works'),
-		//   handler: function(direction) {
-		//     alert('Scrolled to waypoint!')
-		//   },
-		//    context: document.querySelector('.has-scroll-init')
-		//    // offset: '80%'
-		// });
+		const scroll = new LocomotiveScroll({
+			el: document.querySelector('[data-scroll-container]'),
+			smooth: true
+		    // scrollFromAnywhere: true,
+		    // resetNativeScroll: true
+		    // offset: ['100%', 0]
+		});
+		document.querySelector('.person-view__scroll').onclick = function() {
+			console.log(document.querySelector('.person-works__slider').getBoundingClientRect().top)
+			var coord = document.querySelector('.person-works__slider').getBoundingClientRect().top;
+			scroll.scrollTo(document.querySelector('.person-works__slider').getBoundingClientRect().height, {
+				offset: 50, 
+				duration: 500,
+				callback: function() {
+					
+				}
+			});
+
+		}
+		scroll.on('scroll', (func, args, obj) => {
+
+			console.log(func.currentElements);
+			if(func.delta.y === 0){
+				document.querySelector('.person-view__cover').classList.remove('covered');
+			}
+			if(typeof func.currentElements['hey'] === 'object') {
+				document.querySelector('.person-view__cover').classList.add('covered');
+				setTimeout(function() {
+					cardsSwiper.slideTo(cardsSwiper.slides.length / 2, 3000);
+
+				}, 1000);
+			}
+			if(typeof func.currentElements['cards'] === 'object') {
+				[...document.querySelectorAll('.person-works__card')].forEach(card => {
+
+					card.classList.remove('flipOutX');
+					card.classList.add('flipInX');
+				});
+			}
+		});
 	});
 })();

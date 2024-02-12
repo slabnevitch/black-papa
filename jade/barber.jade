@@ -60,9 +60,9 @@ block content
 						+swiper('works-swiper', false, false, true)
 							- for(var i=0; i<20; i++)
 								.swiper-slide.person-works__card
-					.person-works__cards
+					.person-works__cards(data-scroll data-scroll-id="cards" data-scroll-offset="30%, 30%")
 						- for(var i=0; i<20; i++)
-							.person-works__card
+							.person-works__card.animated.flipOutX
 		
 		//- div(data-scroll-section)
 
