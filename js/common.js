@@ -144,6 +144,7 @@
 		      swiper.slidesEl.querySelector('.swiper-slide-next').style.zIndex = '98';
 		      swiper.slidesEl.querySelector('.swiper-slide-active').classList.add('zoom-out');
 		      animateNameShow(swiper.activeIndex);
+
 		    },
 		  }
 		  
@@ -151,6 +152,7 @@
 		const sliderArrowDelay = 2500;
 		let swiperDirection = null;
 		let slideChangeInterval;
+		var namesIndex = 0;
 
 		thumbSwiper.slideTo(1);
 
@@ -205,7 +207,12 @@
 		   swiper.slidesEl.classList.add('swiper-changes');
 		  
   			if(swiper.activeIndex > 0){
-  				animateNameHide(swiper.activeIndex);
+  				animateNameHide(namesIndex);
+  				 animateNameShow(namesIndex - 1);
+  				 namesIndex -= 1;
+  				 if(namesIndex < 0){
+  				 	namesIndex = swiper.slides.length - 1;
+  				 }
 			  sliderMoove('back');
 			 
 			  e.target.disabled = true;
@@ -217,10 +224,15 @@
 		  clearInterval(slideChangeInterval);
 		   swiper.slidesEl.classList.add('swiper-changes');
 			  console.log('index in Next' + swiper.activeIndex)
-		   if(swiper.activeIndex <= swiper.slides.length - 1){
-
-			   animateNameHide(swiper.activeIndex);
+		   if(swiper.activeIndex <= swiper.slides.length - 2){
+  				animateNameHide(namesIndex);
+  				 animateNameShow(namesIndex + 1);
+ 				namesIndex += 1;
+ 				if(namesIndex > swiper.slides.length - 1){
+  				 	namesIndex = 0;
+  				 }
 			  sliderMoove('forward');
+
 			  e.target.disabled = true;
 			  setTimeout(() => {
 			  	
@@ -296,7 +308,7 @@
 		function changeSlidersIndex(direction){
 		  // console.log(swiper.slides.length);
 		  console.log('in cange ' + swiper.activeIndex);
-			animateNameShow(swiper.activeIndex);
+			
 			// [...swiper.slides].forEach((slide, i) => {
 			// 		if(i !== swiper.activeIndex - 1){
 				

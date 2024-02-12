@@ -2509,15 +2509,17 @@ textarea {
 
 .person-view__mini {
   position: absolute;
+  width: 38.125%;
+  height: 37.6851851852%;
   bottom: -42px;
   right: 0;
   z-index: 1;
 }
-.thumb-person-view__wrapper {
+.thumb-person-view__wrap {
+  height: 100%;
   position: relative;
-  right: -234px;
-  width: 732px;
-  height: 407px;
+  right: -29.484029484%;
+  width: 100%;
   overflow: hidden;
   border-radius: 203px;
   border: 1px solid #fff;
@@ -2614,6 +2616,16 @@ textarea {
     font-size: clamp( 2rem , 0.9rem  +  6.875vw , 7.5rem );
   }
 }
+@media only screen and (max-width: 112.5em) {
+  .name-person-view__first {
+    font-size: 3.5rem;
+  }
+}
+@media only screen and (max-width: 112.5em) and (max-width: 100.125em) {
+  .name-person-view__first {
+    font-size: clamp( 1.5rem , 1.1rem  +  2.5vw , 3.5rem );
+  }
+}
 
 .name-person-view__last {
   animation-delay: 0.2s;
@@ -2626,6 +2638,17 @@ textarea {
     font-size: clamp( 0rem , -1.5rem  +  9.375vw , 7.5rem );
   }
 }
+@media only screen and (max-width: 112.5em) {
+  .name-person-view__last {
+    font-size: 3.5rem;
+    font-size: 3.5rem;
+  }
+}
+@media only screen and (max-width: 112.5em) and (max-width: 100.125em) {
+  .name-person-view__last {
+    font-size: clamp( 1.5rem , 1.1rem  +  2.5vw , 3.5rem );
+  }
+}
 
 .name-person-view__text {
   margin-top: 0.75rem;
@@ -2634,19 +2657,19 @@ textarea {
   font-weight: 500;
   color: #fff;
 }
+@media only screen and (max-width: 112.5em) {
+  .name-person-view__text {
+    max-width: 20rem;
+  }
+}
 
 .person-view__actions {
   padding-left: 0.75rem;
-  margin-left: 14.4rem;
-  margin-right: 2.7rem;
+  margin-left: auto;
+  margin-right: 28.6458333333%;
   margin-bottom: 2.5rem;
   position: relative;
   z-index: 2;
-}
-@media (max-width: 100.125em) {
-  .person-view__actions {
-    margin-left: clamp( 0.5rem , -2.28rem  +  17.375vw , 14.4rem );
-  }
 }
 .person-view__actions .btn {
   margin-bottom: 1.75rem;

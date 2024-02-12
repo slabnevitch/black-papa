@@ -118,6 +118,9 @@
 }
 .person-view__mini{
   position: absolute;
+  width: prc(732, 1920);
+  // aspect-ratio: 732/407;
+  height: prc(407,1080);
   bottom: -42px;
   right: 0;
   z-index: 1;
@@ -127,11 +130,13 @@
     // transform: scale(2);
   }
 }
-.thumb-person-view__wrapper{
+.thumb-person-view__wrap{
+  height:100%;
   position: relative;
-  right: -234px;
-  width: 732px;
-  height: 407px;
+  right: prc(-120, 407);
+  // width: prc(732, 1920);
+  width: 100%;
+  // height: 407px;
   overflow: hidden;
   border-radius: 203px;
   border: 1px solid #fff ;
@@ -216,12 +221,21 @@ font-size: rem(13);
   line-height: 1;
     color: $accent;
     @include adaptive-value-rem('font-size', 150, 40, $maxWidth, $minWidth, 1);
+
+    @include max-screen(em(1800)){
+       @include adaptive-value-rem('font-size', 70, 30, $maxWidth, $minWidth, 1);
+    }
 }
 .name-person-view__last{
   animation-delay: 0.2s;
   line-height: 1;
   color: #fff;
   @include adaptive-value-rem('font-size', 150, 0, $maxWidth, $minWidth, 1);
+
+  @include max-screen($lg){
+    font-size: rem(70);
+     @include adaptive-value-rem('font-size', 70, 30, $maxWidth, $minWidth, 1);
+  }
 }
 .name-person-view__text{
   margin-top: rem(15);
@@ -229,12 +243,16 @@ font-size: rem(13);
   max-width: rem(665);
   font-weight: 500;
   color: #fff;
+
+  @include max-screen($lg){
+    max-width: rem(400);
+  }
 }
 .person-view__actions{
   padding-left: rem(15);
-  // margin-left: auto;
-  @include adaptive-value-rem('margin-left', 288, 10, $maxWidth, $minWidth, 1);
-  margin-right: rem(54);
+  margin-left: auto;
+  // @include adaptive-value-rem('margin-left', 288, 10, $maxWidth, $minWidth, 1);
+  margin-right: prc(550, 1920) ;
   margin-bottom: rem(50);
   position: relative;
   z-index: 2;
