@@ -85,18 +85,35 @@
 	}
 	// END siedebar toggling
 
-	const scroll = new LocomotiveScroll({
-		    el: document.querySelector('[data-scroll-container]'),
-		    smooth: true
-		});
-		document.querySelector('.person-view__scroll').onclick = function() {
-			scroll.scrollTo(document.querySelector('.person-works'));
-
-		}
 
 	document.addEventListener('DOMContentLoaded', function() {
 		console.log('DOMContentLoaded!');
 		
+
+		  function ScrollUpdateDelay() {
+		  	setTimeout(function(){ scroll.update(); }, 500);
+
+		  }
+
+		  // ScrollUpdateDelay();
+	
+
+
+// 	scroll.on('scroll', (args) => {
+//     console.log('scroll')
+//     if(typeof args.currentElements['hey'] === 'object') {
+//         let progress = args.currentElements['hey'].progress;
+//         console.log(progress);
+//         // ouput log example: 0.34
+//         // gsap example : myGsapAnimation.progress(progress);
+//     }
+// });
+
+// 	scroll.on('call', (func, args, obj) => {
+//    // this[func]();
+//    console.log(args);
+//    console.log(obj);
+// });
 		const thumbSwiper = new Swiper('.person-view__thumb', {
 		  loop: true,
 		  // effect: "slide",
@@ -108,32 +125,8 @@
 		  fadeEffect: {
 		    crossFade: true
 		  }
-		  // effect: "creative",
-		      // creativeEffect: {
-		      //   prev: {
-		      //     // shadow: true,
-		      //     translate: ["-50%", 0, -200],
-		      //   },
-		      //   next: {
-		      //     // shadow: true,
-		      //     translate: ["80%", 0, -200],
-		      //   },
-		      // },
-		      //  prev: {
-		      //     shadow: true,
-		      //     translate: ["-20%", 0, -1],
-		      //   },
-		      //   next: {
-		      //     shadow: true,
-		      //     translate: ["100%", 0, 0],
-		      //   }
-		      // }
-		  
-		  
 		});
 		const swiper = new Swiper('.person-view__big', {
-		  // Optional parameters
-		  // direction: 'vertical',
 		  loop: true,
 		  effect: 'fade',
 		  allowTouchMove: false,
@@ -144,28 +137,14 @@
 		  // delay: 6000,
 		  // autoplay: true,
 
-		  // If we need pagination
-		  pagination: {
-		    el: '.swiper-pagination',
-		  },
-
-		  // Navigation arrows
-		  // navigation: {
-		  //   clickable: true,
-		  //   nextEl: '.swiper-button-next',
-		  //   prevEl: '.swiper-button-prev',
-		  // },
-
-		  // And if we need scrollbar
-		  scrollbar: {
-		    el: '.swiper-scrollbar',
-		  },
 		   on: {
 		    afterInit: function (swiper) {
 		      console.log(swiper.slidesEl);
 		      // swiper.slidesEl.querySelector('.swiper-slide-prev').style.zIndex = '97';
 		      swiper.slidesEl.querySelector('.swiper-slide-next').style.zIndex = '98';
 		      swiper.slidesEl.querySelector('.swiper-slide-active').classList.add('zoom-out');
+		      animateNameShow(swiper.activeIndex);
+
 		    },
 		  }
 		  
@@ -173,31 +152,94 @@
 		const sliderArrowDelay = 2500;
 		let swiperDirection = null;
 		let slideChangeInterval;
+		var namesIndex = 0;
 
 		thumbSwiper.slideTo(1);
+
+		function animateNameShow(animatedSide){
+			setTimeout(function() {
+			      
+				[...swiper.slides[animatedSide].querySelectorAll('.name-person-view__first, .name-person-view__last')]
+				.forEach((slide) => {
+					// if(slide === animatedSide){
+					// swiper.slidesEl.querySelector('.swiper-slide-active').querySelector('selectors: DOMString').classList.remove('rotateOutUpLeft');
+					// swiper.slidesEl.querySelector('.swiper-slide-active').querySelector('selectors: DOMString').classList.add('rotateInUpLeft');
+						slide.classList.remove('rotateOutUpLeft');
+						slide.classList.add('rotateInUpLeft');
+
+					// }
+		      	});
+
+		      	[...swiper.slides].forEach((slide, i) => {
+					if(i !== animatedSide){
+					// swiper.slidesEl.querySelector('.swiper-slide-active').querySelector('selectors: DOMString').classList.remove('rotateOutUpLeft');
+					// swiper.slidesEl.querySelector('.swiper-slide-active').querySelector('selectors: DOMString').classList.add('rotateInUpLeft');
+						// animateNameHide(i);
+
+					}
+		      	});
+
+		      }, 1500)
+		}
+		function animateNameHide(animatedSide){
+			// setTimeout(function() {
+			      console.log(swiper.slides[animatedSide]);
+				[...swiper.slides[animatedSide].querySelectorAll('.name-person-view__first, .name-person-view__last')]
+				.forEach((slide) => {
+						console.log(slide.textContent)
+						slide.classList.remove('rotateInUpLeft');
+						slide.classList.add('rotateOutUpLeft');
+
+		      	});
+
+		      // }, 1500)
+		}
 
 		function swiperAutoplay(){
 		  slideChangeInterval = setInterval(() => {
 		    sliderMoove('forward');
 		  }, 3000);
 		}
-		swiperAutoplay();
+		// swiperAutoplay();
 
 		document.querySelector('.person-view__prev').onclick = (e) => {
 		  clearInterval(slideChangeInterval);
 		   swiper.slidesEl.classList.add('swiper-changes');
 		  
-		  sliderMoove('back');
-		  
-		  e.target.disabled = true;
-		  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
+  			if(swiper.activeIndex > 0){
+  				animateNameHide(namesIndex);
+  				 animateNameShow(namesIndex - 1);
+  				 namesIndex -= 1;
+  				 if(namesIndex < 0){
+  				 	namesIndex = swiper.slides.length - 1;
+  				 }
+			  sliderMoove('back');
+			 
+			  e.target.disabled = true;
+			  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
+			
+			}
 		}
 		document.querySelector('.person-view__next').onclick = (e) => {
 		  clearInterval(slideChangeInterval);
 		   swiper.slidesEl.classList.add('swiper-changes');
-		  sliderMoove('forward');
-		  e.target.disabled = true;
-		  setTimeout(() => {e.target.disabled = false;},  sliderArrowDelay);
+			  console.log('index in Next' + swiper.activeIndex)
+		   if(swiper.activeIndex <= swiper.slides.length - 2){
+  				animateNameHide(namesIndex);
+  				 animateNameShow(namesIndex + 1);
+ 				namesIndex += 1;
+ 				if(namesIndex > swiper.slides.length - 1){
+  				 	namesIndex = 0;
+  				 }
+			  sliderMoove('forward');
+
+			  e.target.disabled = true;
+			  setTimeout(() => {
+			  	
+			  	// animateNameShow(swiper.activeIndex);
+			  	e.target.disabled = false;
+			  },  sliderArrowDelay);
+		   }
 		} 
 
 		function sliderMoove(direction){
@@ -264,8 +306,18 @@
 		});
 
 		function changeSlidersIndex(direction){
-		  console.log(swiper.slides.length);
-		  console.log(swiper.activeIndex);
+		  // console.log(swiper.slides.length);
+		  console.log('in cange ' + swiper.activeIndex);
+			
+			// [...swiper.slides].forEach((slide, i) => {
+			// 		if(i !== swiper.activeIndex - 1){
+				
+			// 			animateNameHide(i);
+
+			// 		}
+		    //   	});
+
+		  
 		  if(swiper.activeIndex == 0 && direction === 'back'){
 		    swiper.slides[swiper.slides.length - 1].style.zIndex = '98';
 		    swiper.slidesEl.querySelector('[data-swiper-slide-index="'+(swiper.activeIndex+1)+'"]').style.zIndex = '97';
@@ -308,5 +360,105 @@
 		    }
 		  }
 		}
+
+		//---------------Swiper
+		if(document.querySelector('.works-swiper') !== null){
+		  var cardsSwiper = new Swiper('.works-swiper', {
+		  /*
+			effect: 'fade',
+			fadeEffect: {//при отсутствии плавного перехода - расскомментировать соотв-ю. строку в adjustment.scss
+			    crossFade: true
+			  },
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			*/
+			observer: true,
+			observeParents: true,
+			centered: 'auto',
+			centeredSlides: true,
+			//freeMode: true,// в сочетании с mousewheel дает возможность прокручивать стр-цу. после докручивания слайдера до начала или конца колесом мыши
+			slidesPerView: 5,
+			spaceBetween: 30,
+			//autoHeight: true,
+			// speed: 3000,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+			  // direction: 'vertical',
+			  // loop: true,
+			  watchSlidesProgress: true,//предотвращает прокрутку слайдов при клике на ссылку внутри слайда
+			//   breakpoints: {
+			//     // when window width is >= 320px
+			//     320: {
+			//     	slidesPerView: 2,
+			//     	spaceBetween: 20
+			//     },
+			//     // when window width is >= 480px
+			//     480: {
+			//     	slidesPerView: 3,
+			//     	spaceBetween: 30
+			//     },
+			//     // when window width is >= 640px
+			//     640: {
+			//     	slidesPerView: 4,
+			//     	spaceBetween: 40
+			//     }
+			// },
+
+
+			  // Navigation arrows
+			  navigation: {
+			  	nextEl: '.swiper-button-next',
+			  	prevEl: '.swiper-button-prev',
+			  },
+
+			});
+		}
+		//---------------END Swiper
+
+		const scroll = new LocomotiveScroll({
+			el: document.querySelector('[data-scroll-container]'),
+			smooth: true
+		    // scrollFromAnywhere: true,
+		    // resetNativeScroll: true
+		    // offset: ['100%', 0]
+		});
+		document.querySelector('.person-view__scroll').onclick = function() {
+			console.log(document.querySelector('.person-works__slider').getBoundingClientRect().top)
+			var coord = document.querySelector('.person-works__slider').getBoundingClientRect().top;
+			scroll.scrollTo(document.querySelector('.person-works__slider').getBoundingClientRect().height, {
+				offset: 50, 
+				duration: 500,
+				callback: function() {
+					
+				}
+			});
+
+		}
+		scroll.on('scroll', (func, args, obj) => {
+
+			console.log(func.currentElements);
+			if(func.delta.y === 0){
+				document.querySelector('.person-view__cover').classList.remove('covered');
+			}
+			if(typeof func.currentElements['hey'] === 'object') {
+				document.querySelector('.person-view__cover').classList.add('covered');
+				setTimeout(function() {
+					cardsSwiper.slideTo(cardsSwiper.slides.length / 2, 3000);
+
+				}, 1000);
+			}
+			if(typeof func.currentElements['cards'] === 'object') {
+				[...document.querySelectorAll('.person-works__card')].forEach(card => {
+
+					card.classList.remove('flipOutX');
+					card.classList.add('flipInX');
+				});
+			}
+		});
 	});
 })();
