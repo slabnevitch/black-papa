@@ -1,0 +1,98 @@
+section.services._sect
+	.services__decor
+		img(src="img/decor-left.svg" alt="alt")
+	.services__decor
+		img(src="img/decor-right.svg" alt="alt")
+	
+	.services__wrapper
+		+title('УСЛУГИ барбершопа', '8.8.7 art barbers?', 'Ознакомиться с прайсом на услуги и копмлексы вы можете ниже')
+
+	.__wrapper.wrapper-mini
+		.services__content.decored-bottom
+			.block-decor
+			.block-decor
+
+			- var header = ['Название', 'Barber', 'PRO.Barber', 'Время'];
+			- buttons = ['Голова', 'Лицо', 'Уход', 'Комплекс'];
+
+			._tabs
+				ul.tabs__buttons.services__buttons
+
+					li
+						a.tab.services__tab.active(href='#') Голова
+					li
+						a.tab.services__tab(href='#') Лицо
+					li
+						a.tab.services__tab(href='#') Уход
+					li
+						a.tab.services__tab(href='#') Комплекс
+				
+				ul.tabs__container
+					li.tab-content.services__tab-content.active
+						- var tabHead = [['Удлинённый дизайн', '2000 ₽', '2200 ₽','60 мин'], ['Стрижка','1800 ₽', '2000 ₽', '60 мин'], ['Королевское бритье', '1800 ₽',  '2000 ₽', '60 мин'], ['Стрижка “Губернатор”', '1600 ₽', '1700 ₽', '60 мин'], ['Детская стрижка', '1500 ₽', '1600 ₽', '60 мин'], ['Камуфляж', '1300 ₽', '1500 ₽', '60 мин'], ['Стрижка под машинку',  '1100 ₽', '1300 ₽', '30 мин'], ['Окантовка головы', '600 ₽', '700 ₽', '15 мин'], ['Первая стрижка', 'Бесплатно', 'Бесплатно', '60 мин']];
+						
+						.services__table.table-services
+							.table-services__header
+								.table-services__row
+									each item in header
+										.table-services__col= item
+
+							.table-services__body
+								each item in tabHead
+									.table-services__row
+										each skot, i in item
+											div(class=skot === 'Бесплатно'?"table-services__col table-services__col--active" : "table-services__col")
+												.table-services__label= header[i]
+												.table-services__value= skot
+					
+					li.tab-content.services__tab-content.hidden
+						- var tabFace = [['Геометрия бороды', '1800 ₽', '2000 ₽','60 мин'], ['Королевское бритье', '1800 ₽', '2000 ₽','60 мин'], ['Коррекция бороды', '1400 ₽', '1600 ₽','30 мин'], ['Камуфляж бороды', '1300 ₽', '1500 ₽','30 мин'], ['Стрижка бороды', '600 ₽', '800 ₽','30 мин']];
+						.services__table.table-services
+							.table-services__header
+								.table-services__row
+									each item in header
+										.table-services__col= item
+
+							.table-services__body
+								each item in tabFace
+									.table-services__row
+										each skot, i in item
+											div(class=skot === 'Бесплатно'?"table-services__col table-services__col--active" : "table-services__col")
+												.table-services__label= header[i]
+												.table-services__value= skot
+					
+					li.tab-content.services__tab-content.hidden
+						- var tabCare = [['Black Mack', '1300 ₽', '1500 ₽','45 мин'], ['Удаление волос воском', '1100 ₽', '1300 ₽','20 мин'], ['Премиум мытье головы', '1000 ₽', '1100 ₽','15 мин'], ['Кератин', '700 ₽', '800 ₽','15 мин'], ['Массаж головы', '500 ₽', '600 ₽','15 мин'], ['Удаление волос воском 1 зона', '300 ₽', '400 ₽','5 мин']];
+						.services__table.table-services
+							.table-services__header
+								.table-services__row
+									each item in header
+										.table-services__col= item
+
+							.table-services__body
+								each item in tabCare
+									.table-services__row
+										each skot, i in item
+											div(class=skot === 'Бесплатно'?"table-services__col table-services__col--active" : "table-services__col")
+												.table-services__label= header[i]
+												.table-services__value= skot
+					li.tab-content.services__tab-content.hidden
+						- var tabComplex = [['Полный комплекс', '6000 ₽', '6000 ₽', '150 мин'], ['Стрижка + Борода', '3200 ₽', '3400 ₽', '120 мин'], ['Отец + Сын', '3000 ₽', '3200 ₽', '120 мин']];
+						.services__table.table-services
+							.table-services__header
+								.table-services__row
+									each item in header
+										.table-services__col= item
+
+							.table-services__body
+								each item in tabComplex
+									.table-services__row
+										each skot, i in item
+											div(class=skot === 'Бесплатно'?"table-services__col table-services__col--active" : "table-services__col")
+												.table-services__label= header[i]
+												.table-services__value= skot
+
+		
+
+		.services__bottom
+			button.btn.btn-fw.services__btn(type="button") ВЫБРАТЬ BARBER`A

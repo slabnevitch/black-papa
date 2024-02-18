@@ -1,5 +1,6 @@
 /*--------------------sidebar----------------------*/
 .sidebar {
+	padding-top: rem(57);
 	z-index: 99;
 	position: fixed;
 	width: rem(120);
@@ -44,26 +45,20 @@
 }
 .burger-sidebar__inner {
 	@include but-null();
-	height: rem(20);
-	width: rem(20);
+	// height: rem(20);
+	// width: rem(20);
 	display: flex;
-	column-gap: rem(2);
+	column-gap: rem(10);
 	align-items: center;
 	overflow: hidden;
 	.icon {
 		  flex: 0 0 auto;
-		color: #fff;
+		color: #000;
 		transition: all 0.5s;	
 	}
 	.icon-burger {
 		font-size: rem(15);
 
-		.opened &{
-			margin-left: rem(-21);
-		}
-	}
-	.icon-backward {
-		font-size: rem(20);
 	}
 
 	@media (any-hover: hover) { //только для устройств с ховером
@@ -80,6 +75,11 @@
 	display: flex;
 	flex-direction: column;
 	// align-items: center;
+}
+.burger-sidebar__text{
+	font-weight: 900;
+	font-size: rem(20);
+	font-family: 'Raleway', sans-serif;
 }
 .menu-sidebar__item {
 	list-style-type: none;
