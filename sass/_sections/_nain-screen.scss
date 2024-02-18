@@ -1,0 +1,34 @@
+/*--------------------main-screen----------------------*/
+.main-screen{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	padding: prc(192, 1920) rem(30) prc(192, 1920) rem(30);
+	text-align: center;
+
+	&__btn{
+		flex: 0 0 auto;
+		margin-top: rem(21);
+		width: 100%;
+		max-width: rem(765);
+	}
+}
+.main-screen__img{
+	position: relative;
+	width: 100%;
+	flex: 1 1 prc(600, 1920);
+	img{
+		@include absolute-center;
+		max-height: 100%;
+		max-width: 100%;
+	}
+}
+.wide-photo{
+	aspect-ratio: 1920/1080;
+	background-attachment: fixed;
+	background-position: center 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+/*--------------------END main-screen----------------------*/ 

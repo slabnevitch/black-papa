@@ -4,12 +4,24 @@ block title
 	| Главная страница
 
 block content
-	.__wrapper
-		h1.huy(style="text-align:center;") Привет! Можно начинать
+	.main-screen
+		.main-screen__img
+			img(src="img/main-1.jpg" alt="alt")
+		button.btn.main-screen__btn(type="button") ВЫБРАТЬ BARBER`A
+
+	.wide-photo(style="background-image: url(img/fixed-attachment-1.jpg);")
+
+	include _sections/history
+	include _sections/naming
+	include _sections/features
+
+	.wide-photo.barber-become(style="background-image: url(img/fixed-attachment-1.jpg);")
+		.barber-become__wrapper
+			button.btn.barber-becomen__btn(type="button") СТАТЬ БАРБЕРОМ
 
 block page-scripts
 	//- SERVIVE FUNCTIONS==================
-	script(src="js/libs/waypoints/noframework.waypoints.js")
+	//- script(src="js/libs/waypoints/noframework.waypoints.js")
 	//- remove-class--------------------------
 	//- script(src="js/libs/service-functions/remove-class.js")
 

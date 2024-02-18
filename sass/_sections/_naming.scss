@@ -1,0 +1,20 @@
+/*--------------------naming----------------------*/
+.naming__img{
+	max-width: rem(1340);
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	@include adaptive-value-rem('margin-bottom', 70, 30, $maxWidth, $minWidth, 1);
+	
+	img{
+		max-width: 100%;
+	}
+}
+.naming__logo{
+	max-width: rem(152);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: rem(27);
+	text-align: center;
+}
+/*--------------------END naming----------------------*/ 

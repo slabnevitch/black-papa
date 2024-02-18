@@ -1,0 +1,18 @@
+section.features-cards
+	- var cards = [{name: 'Современный подход', body: 'Использование новейших методов и технологий в процессе стрижки и ухода.'}, {name: 'Гарантия качества услуг', body: 'Мы предоставляем гарантию, что ваша стрижка будет удивлять всех на протяжении двух недель'}, {name: 'Универсальность в решении задач', body: 'Идеальное место для мужчин, где можно быстро и качественно решить все вопросы по уходу за внешностью.'}, {name: 'Разнообразие услуг и сервисов ', body: 'Предлагаем огромный выбор услуг и комплексов, для всех мужчин'}];
+
+	.features-cards__wrapper
+		each card, i in cards
+			.features-card
+				.features-card__img._fit
+					img._fit-img(src="img/cards/4.jpg" alt="alt")
+				
+				.features-card__icon.animated.slideInUp.infinite
+					+icon('card-arrow')
+				.features-card__text
+					.features-card__name= card.name
+					.features-card__body
+						.features-card__content= card.body
+
+	.features-cards__decor
+		img(src="img/decor-right.svg" alt="alt")
