@@ -2204,7 +2204,7 @@ html, body {
 }
 
 body {
-  font-family: "raleway-v22-latin_cyrillic-regular", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: normal;
   font-size: 1rem;
   min-width: 16rem;
@@ -2230,6 +2230,7 @@ html, body {
   -ms-flex-direction: column;
   flex-direction: column;
   min-height: 100%;
+  padding-left: 6rem;
   overflow: hidden;
 }
 @supports (overflow: clip) {
@@ -2346,7 +2347,6 @@ textarea {
 }
 
 ._fit {
-  padding-bottom: 80%;
   position: relative;
 }
 
@@ -2383,19 +2383,20 @@ textarea {
   text-decoration: none;
   background-color: #FF0076;
   padding: 0.25rem 3.35rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-transform: uppercase;
   border-radius: 0.2rem;
   text-align: center;
   position: relative;
   outline: none;
   transition: background-color 0.3s ease;
-  font-family: "Open-sans", sans-serif;
-  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
   cursor: pointer;
+  letter-spacing: 0.01rem;
 }
 .btn:hover {
-  background-color: #ff1a84;
+  background-color: #ff4d9f;
 }
 .btn:active {
   background-color: #e6006a;
@@ -2504,6 +2505,39 @@ textarea {
   content: "";
   position: absolute;
   background-color: #000;
+}
+
+.block-decor {
+  position: absolute;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+}
+.block-decor:before {
+  top: 0;
+  left: 0;
+  width: 0.65rem;
+  height: 0.65rem;
+}
+.block-decor:after {
+  height: 0.1rem;
+  top: 0.3rem;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.block-decor:before, .block-decor:after {
+  content: "";
+  position: absolute;
+  background-color: #000;
+}
+.decored-bottom .block-decor {
+  bottom: 0;
+  left: 0;
+}
+.decored-top .block-decor {
+  top: 0;
+  left: 0;
 }
 
 /*--------------------END ui----------------------*/
@@ -2643,6 +2677,12 @@ textarea {
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   border-bottom: 2px solid #000;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  overflow: hidden;
 }
 
 .features-card__body {
@@ -2681,6 +2721,89 @@ textarea {
 
 /*--------------------END features-cards----------------------*/
 /*--------------------footer----------------------*/
+.footer {
+  padding-top: 9.7rem;
+  padding-bottom: 2rem;
+}
+@media (max-width: 109.375em) {
+  .footer {
+    padding-top: clamp( 2.5rem , 1.06rem  +  9vw , 9.7rem );
+  }
+}
+
+.footer__wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2.9rem;
+}
+
+.footer__left {
+  -ms-flex: 0 0 26.9rem;
+  flex: 0 0 26.9rem;
+}
+
+.footer__right {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.footer__block:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.footer__block__title {
+  position: relative;
+  margin-bottom: 2rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+.footer__block__title.decored-bottom {
+  padding-bottom: 1.5rem;
+}
+
+.footer__schedule {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 6.8rem auto;
+  grid-template-columns: 6.8rem auto;
+  gap: 0.5rem;
+}
+
+.footer__block__address {
+  font-style: normal;
+}
+
+.footer__map {
+  aspect-ratio: 1133/539;
+  margin-bottom: 1.2rem;
+}
+
+.footer__slider {
+  min-width: 0;
+}
+
+.footer-photos {
+  padding-bottom: 0.8rem;
+}
+.footer-photos .swiper-horizontal > .swiper-pagination-progressbar, .footer-photos .swiper-pagination-progressbar.swiper-pagination-horizontal, .footer-photos .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .footer-photos .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+  bottom: 0;
+  top: auto;
+}
+.footer-photos .swiper-horizontal > .swiper-pagination-progressbar, .footer-photos .swiper-pagination-progressbar.swiper-pagination-horizontal, .footer-photos .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .footer-photos .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+  height: 0.45rem;
+  background-color: #F6F2F2;
+  border-radius: 0.2rem;
+}
+.footer-photos .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: #FA6C35;
+  border-radius: 0.2rem;
+}
+
+.footer__slide {
+  aspect-ratio: 371/247;
+}
+
 /*--------------------END footer----------------------*/
 /*--------------------header----------------------*/
 /*--------------------END header----------------------*/
@@ -2759,8 +2882,8 @@ textarea {
 .main-screen__img {
   position: relative;
   width: 100%;
-  -ms-flex: 1 1 31.25%;
-  flex: 1 1 31.25%;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 .main-screen__img img {
   display: block;
@@ -2771,8 +2894,8 @@ textarea {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  max-height: 100%;
   max-width: 100%;
+  height: 100%;
 }
 
 .wide-photo {
@@ -3203,7 +3326,6 @@ textarea {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: #1E1E1E;
   transition: width 0.4s ease-in;
 }
 .sidebar.opened {

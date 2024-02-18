@@ -1,5 +1,80 @@
 /*--------------------footer----------------------*/
-.footer{
-	
+.footer {
+	@include adaptive-value-rem('padding-top', 194, 50, $maxWidth, $minWidth, 1);
+	padding-bottom: rem(40);
+}
+.footer__wrapper {
+	display: flex;
+	gap: rem(58)
+}
+.footer__left {
+	flex: 0 0 rem(538);
+}
+.footer__right{
+	flex: 1 1 auto;
+	min-width: 0;
+}
+.footer__block {
+
+	&:not(:last-child){
+		margin-bottom: rem(40);
+	}
+
+}
+.footer__block__title {
+	position: relative;
+	margin-bottom: rem(40);
+	font-size: rem(27);
+	font-weight: 700;
+
+	&.decored-bottom{
+		padding-bottom: rem(30);
+
+	}
+}
+.footer__schedule {
+	display: grid;
+	grid-template-columns: rem(136) auto;
+	gap: rem(10);
+}
+.schedule-footer {
+
+}
+.schedule-footer__key {}
+.schedule-footer__val {}
+.footer__block__address {
+	font-style: normal;
+}
+.footer__select {}
+.btn {}
+.btn-fw {}
+.footer__select-btn {}
+.footer__map {
+	aspect-ratio: 1133/539;
+	margin-bottom: rem(24);
+}
+.footer__slider {
+	min-width: 0;
+
+}
+.footer-photos{
+	padding-bottom: rem(16);
+	.swiper-horizontal > .swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite{
+		bottom: 0;
+		top: auto;
+	}
+	.swiper-horizontal > .swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite{
+		height: rem(9);
+		background-color: #F6F2F2;
+		border-radius: rem(4);
+	}
+	.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+		background-color: $orange;
+		border-radius: rem(4);
+	}
+
+}
+.footer__slide{
+	aspect-ratio: 371/247;
 }
 /*--------------------END footer----------------------*/ 

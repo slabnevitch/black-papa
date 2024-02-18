@@ -1,1 +1,30 @@
 footer.footer
+	.footer__wrapper
+		.footer__left
+			.footer__block
+				.footer__block__title.decored-bottom Время работы 8.8.7
+					.block-decor
+				- var shed = [{key:'Понедельник:', val:'Выходной день'}, {key:'Вторник:', val:'10:00 - 21:00'}, {key:'Среда:', val:'10:00 - 21:00'}, {key:'Четверг:', val:'10:00 - 21:00'}, {key:'Пятница:', val:'10:00 - 21:00'}, {key:'Суббота:', val:'10:00 - 21:00'}, {key:'Воскресенье:', val:' 11:00 - 15:00'}];
+				.footer__schedule.schedule-footer
+					each item in shed
+						.schedule-footer__key=item.key
+						.schedule-footer__val=item.val
+
+			.footer__block
+				.footer__block__title.decored-bottom Расположение ART BARBERS
+					.block-decor
+				address.footer__block__address Г. Тверь, Наб. Степана Разина 20Б
+
+			.footer__block
+				.footer__block__title Выбрать Barber`a и удобное время
+				.footer__select
+					button.btn.btn-fw.footer__select-btn ВЫБРАТЬ BARBER`A
+		
+		.footer__right
+			.footer__map#map
+			.footer__slider
+				+swiper('footer-photos', true, false, false)
+					- for (var i=0; i<10 ; i++)
+						.swiper-slide
+							.footer__slide._fit
+								img._fit-img(src="img/footer-slider/1.jpg" alt="alt")

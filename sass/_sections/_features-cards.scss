@@ -110,7 +110,7 @@
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	border-bottom: 2px solid #000;
-
+	@include dots-family-multi(2);
 }
 .features-card__body {
 	margin-left: rem(-20);
