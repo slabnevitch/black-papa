@@ -11,48 +11,16 @@
   <body>
     <main class="main">
       <aside class="sidebar">
-        <header class="sidebar__header"><a href="#" class="sidebar__logo"><img src="img/logo.svg" alt="alt"></a>
+        <header class="sidebar__header">
           <div class="sidebar__burger burger-sidebar">
             <button type="button" class="burger-sidebar__inner">
                   <svg class="icon icon-burger ">
                     <use xlink:href="img/icons-svg/symbol/sprite.svg#burger"></use>
-                  </svg>
-                  <svg class="icon icon-backward ">
-                    <use xlink:href="img/icons-svg/symbol/sprite.svg#backward"></use>
-                  </svg>
+                  </svg><span class="burger-sidebar__text">MENU</span>
             </button>
           </div>
         </header>
-        <ul class="sidebar__menu menu-sidebar">
-          <li class="menu-sidebar__item"><a href="#" class="menu-sidebar__link">
-                  <svg class="icon icon-home ">
-                    <use xlink:href="img/icons-svg/symbol/sprite.svg#home"></use>
-                  </svg><span class="menu-sidebar__name">Главная</span></a></li>
-          <li class="menu-sidebar__item"><a href="#" class="menu-sidebar__link">
-                  <svg class="icon icon-wallet ">
-                    <use xlink:href="img/icons-svg/symbol/sprite.svg#wallet"></use>
-                  </svg><span class="menu-sidebar__name">Услуги</span></a></li>
-          <li class="menu-sidebar__item"><a href="#" class="menu-sidebar__link menu-sidebar__link--activee">
-                  <svg class="icon icon-place ">
-                    <use xlink:href="img/icons-svg/symbol/sprite.svg#place"></use>
-                  </svg><span class="menu-sidebar__name">Барбершоп</span></a></li>
-          <li class="menu-sidebar__item"><a href="#" class="menu-sidebar__link menu-sidebar__link--activee">
-                  <svg class="icon icon-users ">
-                    <use xlink:href="img/icons-svg/symbol/sprite.svg#users"></use>
-                  </svg><span class="menu-sidebar__name">Art School</span></a></li>
-          <li class="menu-sidebar__item"><a href="#" class="menu-sidebar__link menu-sidebar__link--activee">
-                  <svg class="icon icon-calendar ">
-                    <use xlink:href="img/icons-svg/symbol/sprite.svg#calendar"></use>
-                  </svg><span class="menu-sidebar__name">Записаться</span></a></li>
-          <li class="menu-sidebar__item"><a href="#" class="menu-sidebar__link">
-                  <svg class="icon icon-shield ">
-                    <use xlink:href="img/icons-svg/symbol/sprite.svg#shield"></use>
-                  </svg><span class="menu-sidebar__name">Сертификаты</span></a></li>
-          <li class="menu-sidebar__item"><a href="#" class="menu-sidebar__link">
-                  <svg class="icon icon-loc ">
-                    <use xlink:href="img/icons-svg/symbol/sprite.svg#loc"></use>
-                  </svg><span class="menu-sidebar__name">Расположение</span></a></li>
-        </ul><a href="#" class="sidebar__bottom"><img src="img/tu-estilo_logo.svg" alt="alt"></a>
+        <a href="#" class="sidebar__bottom"><img src="img/tu-estilo_logo.svg" alt="alt"></a>
       </aside>
       <header class="header"></header>
       <div class="main-content">
@@ -176,7 +144,7 @@
                 </div>
               </div>
               <div class="person-works__folio">
-                <div data-scroll data-scroll-id="hey" class="person-works__slider">
+                <div data-scroll data-scroll-call="pizda" data-scroll-id="hey" class="person-works__slider">
                       <div class="swiper-container swiper works-swiper">
                         <div class="swiper-wrapper">
                           <div class="swiper-slide person-works__card"></div>
@@ -231,15 +199,95 @@
           </div>
         </div>
       </div>
-      <footer class="footer"></footer>
+      <footer class="footer">
+        <div class="footer__wrapper">
+          <div class="footer__left">
+            <div class="footer__block">
+              <div class="footer__block__title decored-bottom">Время работы 8.8.7
+                <div class="block-decor"></div>
+              </div>
+              <div class="footer__schedule schedule-footer">
+                <div class="schedule-footer__key">Понедельник:</div>
+                <div class="schedule-footer__val">Выходной день</div>
+                <div class="schedule-footer__key">Вторник:</div>
+                <div class="schedule-footer__val">10:00 - 21:00</div>
+                <div class="schedule-footer__key">Среда:</div>
+                <div class="schedule-footer__val">10:00 - 21:00</div>
+                <div class="schedule-footer__key">Четверг:</div>
+                <div class="schedule-footer__val">10:00 - 21:00</div>
+                <div class="schedule-footer__key">Пятница:</div>
+                <div class="schedule-footer__val">10:00 - 21:00</div>
+                <div class="schedule-footer__key">Суббота:</div>
+                <div class="schedule-footer__val">10:00 - 21:00</div>
+                <div class="schedule-footer__key">Воскресенье:</div>
+                <div class="schedule-footer__val"> 11:00 - 15:00</div>
+              </div>
+            </div>
+            <div class="footer__block">
+              <div class="footer__block__title decored-bottom">Расположение ART BARBERS
+                <div class="block-decor"></div>
+              </div>
+              <address class="footer__block__address">Г. Тверь, Наб. Степана Разина 20Б</address>
+            </div>
+            <div class="footer__block">
+              <div class="footer__block__title">Выбрать Barber`a и удобное время</div>
+              <div class="footer__select">
+                <button class="btn btn-fw footer__select-btn">ВЫБРАТЬ BARBER`A</button>
+              </div>
+            </div>
+          </div>
+          <div class="footer__right">
+            <div id="map" class="footer__map"></div>
+            <div class="footer__slider">
+                  <div class="swiper-container swiper footer-photos">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="footer__slide _fit"><img src="img/footer-slider/1.jpg" alt="alt" class="_fit-img"></div>
+                      </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     
     
     <script type="text/javascript" src="js/libs/svg4everybody/svg4everybody.min.js" async onload="svg4everybody();"></script>
     
     
     <script src="js/libs/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
-    <script src="js/libs/waypoints/noframework.waypoints.js"></script>
+    <!-- script(src="js/libs/waypoints/noframework.waypoints.js")
+    -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/common.js"></script>
   </body>
