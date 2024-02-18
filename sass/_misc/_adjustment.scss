@@ -158,8 +158,8 @@ textarea{
 	padding-right: rem(math.div($containerPaddings, 2));
 	max-width: rem($maxContainerWidth);
 	// outline: 1px solid;
-	@include max-screen(em($maxWidthContainer)){
-		padding-left: prc(84, $maxWidth);
+	@include max-screen(em($maxWidth)){
+		padding-left: rem(120);
 		padding-right: prc(84, $maxWidth);
 		
 	}

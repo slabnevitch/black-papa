@@ -2304,9 +2304,9 @@ textarea {
   padding-right: 0.75rem;
   max-width: 89rem;
 }
-@media only screen and (max-width: 109.375em) {
+@media only screen and (max-width: 120em) {
   [class*=__wrapper] {
-    padding-left: 4.375%;
+    padding-left: 6rem;
     padding-right: 4.375%;
   }
 }
@@ -2622,6 +2622,11 @@ textarea {
 @media (max-width: 109.375em) {
   .features-cards__wrapper {
     column-gap: clamp( 0.25rem , -0.54rem  +  4.9375vw , 4.2rem );
+  }
+}
+@media only screen and (max-width: 126.25em) {
+  .features-cards__wrapper {
+    padding-left: 6rem;
   }
 }
 

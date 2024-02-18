@@ -14,6 +14,9 @@
 	grid-template-columns: repeat(4, 1fr);
 	@include adaptive-value-rem('column-gap', 84, 5, $maxWidth, $minWidth, 1);
 	// row-gap: rem(50);
+	@include max-screen(em($maxWidth + 100)){
+		padding-left: rem(120);
+	}
 }
 .features-card {
 	position: relative;
