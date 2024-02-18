@@ -2,18 +2,24 @@
 .features-cards {
 	position: relative;
 	padding-top: rem(134);
+	@include adaptive-value('padding-top', 134, 0, 1);
 	padding-bottom: prc(551,1920);
 }
 .features-cards__wrapper {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(rem(374), 1fr));
-	@include adaptive-value-rem('column-gap', 84, 30, $maxWidth, $minWidth, 1);
-	row-gap: rem(50);
+	padding-left: prc(84, $maxWidth);
+	padding-right: prc(84, $maxWidth);
+	max-width: rem($maxWidth);
+	// grid-template-columns: repeat(auto-fit, minmax(rem(374), 1fr));
+	grid-template-columns: repeat(4, 1fr);
+	@include adaptive-value-rem('column-gap', 84, 5, $maxWidth, $minWidth, 1);
+	// row-gap: rem(50);
 }
 .features-card {
 	position: relative;
 	transition: all .3s;
-	aspect-ratio: 1/1;
+	// aspect-ratio: 1/1;
+	height: rem(372);
 	padding: rem(30) rem(20);
 	display: flex;
 	flex-direction: column;
@@ -106,7 +112,8 @@
 	max-width: rem(260);
 	transition: font-size 0.3s;
 	padding-bottom: rem(10);
-	font-size: rem(27);
+	// font-size: rem(27);
+	@include adaptive-value-rem('font-size', 27, 10, $maxWidth, $minWidth, 1);
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	border-bottom: 2px solid #000;

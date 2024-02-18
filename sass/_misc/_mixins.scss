@@ -147,14 +147,14 @@ $columnClass: '') {
   
   @if $columnClass == ''{
   	._flex-col{
-  		flex: 0 1 calc(100%/$width - rem($colgap));
+  		flex: 1 1 calc(100%/$width - rem($colgap));
 		
 		@if $points{
 	  		@each $point, $value in $points {
 	  			@if $value != ''{
 		  			// background-color: red;
 		  			@media only screen and (max-width: #{$point}){
-		  				flex: 0 1 calc(100%/$value - rem($colgap));
+		  				flex: 1 1 calc(100%/$value - rem($colgap));
 		  			}
 
 		  		}
@@ -165,14 +165,14 @@ $columnClass: '') {
 	  }
 	}@else {
 		.#{$columnClass}{
-			flex: 0 1 calc(100%/$width - rem($colgap));
+			flex: 1 1 calc(100%/$width - rem($colgap));
 		
 			@if $points{
 		  		@each $point, $value in $points {
 		  			@if $value != ''{
 			  			// background-color: red;
 			  			@media only screen and (max-width: #{$point}){
-			  				flex: 0 1 calc(100%/$value - rem($colgap));
+			  				flex: 1 1 calc(100%/$value - rem($colgap));
 			  			}
 
 			  		}

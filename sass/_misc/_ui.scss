@@ -42,8 +42,8 @@
 
 ._sect{
   // padding: rem(136) 0 rem(136) 0;
-  @include adaptive-value-rem('padding-top', 136, 40, $maxWidth, $minWidth, 1);
-  @include adaptive-value-rem('padding-bottom', 136, 40, $maxWidth, $minWidth, 1);
+  @include adaptive-value-rem('padding-top', 136, 20, $maxWidth, $minWidth, 1);
+  @include adaptive-value-rem('padding-bottom', 136, 20, $maxWidth, $minWidth, 1);
 }
 .title-block{
   display: flex;
@@ -90,6 +90,8 @@
   padding-top: rem(26);
   text-align: justify;
   line-height: 1.5;
+  flex-grow: 1; 
+  @include adaptive-value-rem('font-size', 20, 12, $maxWidth, $minWidth, 1);
   &:before{
     top: 0;
     left: 0;
@@ -110,6 +112,8 @@
     position: absolute;
     background-color: #000;
   }
+
+
 }
 .block-decor{
   position: absolute;

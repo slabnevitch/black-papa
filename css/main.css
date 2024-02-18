@@ -2304,6 +2304,12 @@ textarea {
   padding-right: 0.75rem;
   max-width: 89rem;
 }
+@media only screen and (max-width: 109.375em) {
+  [class*=__wrapper] {
+    padding-left: 4.375%;
+    padding-right: 4.375%;
+  }
+}
 
 .wrapper-mini {
   max-width: 61rem;
@@ -2432,12 +2438,12 @@ textarea {
 }
 @media (max-width: 109.375em) {
   ._sect {
-    padding-top: clamp( 2rem , 1.04rem  +  6vw , 6.8rem );
+    padding-top: clamp( 1rem , -0.16rem  +  7.25vw , 6.8rem );
   }
 }
 @media (max-width: 109.375em) {
   ._sect {
-    padding-bottom: clamp( 2rem , 1.04rem  +  6vw , 6.8rem );
+    padding-bottom: clamp( 1rem , -0.16rem  +  7.25vw , 6.8rem );
   }
 }
 
@@ -2495,8 +2501,8 @@ textarea {
   margin-bottom: 1.9rem;
 }
 .text-columns .text-column {
-  -ms-flex: 0 1 calc(50% - 1.5rem);
-  flex: 0 1 calc(50% - 1.5rem);
+  -ms-flex: 1 1 calc(50% - 1.5rem);
+  flex: 1 1 calc(50% - 1.5rem);
 }
 
 .text-column {
@@ -2504,6 +2510,14 @@ textarea {
   padding-top: 1.3rem;
   text-align: justify;
   line-height: 1.5;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  font-size: 1rem;
+}
+@media (max-width: 109.375em) {
+  .text-column {
+    font-size: clamp( 0.6rem , 0.52rem  +  0.5vw , 1rem );
+  }
 }
 .text-column:before {
   top: 0;
@@ -2586,27 +2600,35 @@ textarea {
 .features-cards {
   position: relative;
   padding-top: 6.7rem;
+  padding-top: 134px;
   padding-bottom: 28.6979166667%;
+}
+@media (max-width: 1750px) {
+  .features-cards {
+    padding-top: calc(0px + 134 * ((100vw - 320px) / 1430));
+  }
 }
 
 .features-cards__wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(18.7rem, 1fr))[auto-fit];
-  grid-template-columns: repeat(auto-fit, minmax(18.7rem, 1fr));
+  padding-left: 4.375%;
+  padding-right: 4.375%;
+  max-width: 96rem;
+  -ms-grid-columns: (1fr)[4];
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 4.2rem;
-  row-gap: 2.5rem;
 }
 @media (max-width: 109.375em) {
   .features-cards__wrapper {
-    column-gap: clamp( 1.5rem , 0.96rem  +  3.375vw , 4.2rem );
+    column-gap: clamp( 0.25rem , -0.54rem  +  4.9375vw , 4.2rem );
   }
 }
 
 .features-card {
   position: relative;
   transition: all 0.3s;
-  aspect-ratio: 1/1;
+  height: 18.6rem;
   padding: 1.5rem 1rem;
   display: -ms-flexbox;
   display: flex;
@@ -2700,6 +2722,11 @@ textarea {
   -webkit-box-orient: vertical;
   /* autoprefixer: on */
   overflow: hidden;
+}
+@media (max-width: 109.375em) {
+  .features-card__name {
+    font-size: clamp( 0.5rem , 0.33rem  +  1.0625vw , 1.35rem );
+  }
 }
 
 .features-card__body {
@@ -2921,6 +2948,12 @@ textarea {
   background-position: center 0;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.main-visual {
+  height: 100vh;
+  width: 100%;
+  aspect-ratio: 1920/1080;
 }
 
 /*--------------------END main-screen----------------------*/
@@ -3277,8 +3310,8 @@ textarea {
   row-gap: 2.4rem;
 }
 .person-works__cards .person-works__card {
-  -ms-flex: 0 1 calc(20% - 1.5rem);
-  flex: 0 1 calc(20% - 1.5rem);
+  -ms-flex: 1 1 calc(20% - 1.5rem);
+  flex: 1 1 calc(20% - 1.5rem);
 }
 .person-works__cards .person-works__card {
   -ms-flex-positive: 1;
@@ -3429,6 +3462,7 @@ textarea {
 .services__tab.active {
   color: #000;
   background-color: transparent;
+  text-decoration: underline;
 }
 
 .services__table {

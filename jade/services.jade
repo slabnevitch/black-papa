@@ -1,11 +1,13 @@
 extends _misc/main
 
 block title
-	| Главная страница
+	| Услуги
 
 block content
-
-	include _sections/main-screen
+	.main-visual._fit
+		img._fit-img(src="img/fixed-attachment-1.jpg" alt="alt")
+	
+	include _sections/how-work
 
 	.wide-photo(style="background-image: url(img/fixed-attachment-1.jpg);")
 
