@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   height: rem(55);
-  border: none;
+  border: 1px solid transparent;
   color: #fff;
   text-decoration: none;
   background-color: $accent;
@@ -29,6 +29,14 @@
    background-color: darken($accent, 5%);
   }
   
+  &-brd{
+    background-color: transparent;
+    border-color: #fff;
+
+    &:active, &:hover{
+     background-color: transparent;
+    }
+  }
   &-fw{
    width: 100%;
   }
