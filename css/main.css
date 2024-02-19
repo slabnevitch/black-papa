@@ -3664,6 +3664,7 @@ textarea {
   transition: width 0.4s ease-in;
 }
 .sidebar.opened {
+  background-color: rgba(255, 255, 255, 0.8);
   width: 14.45rem;
 }
 
@@ -3731,6 +3732,13 @@ textarea {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
+  transition: transform 0.4s ease;
+  -ms-transform: translateX(-300%);
+  transform: translateX(-300%);
+}
+.sidebar.opened .menu-sidebar {
+  -ms-transform: translateX(0);
+  transform: translateX(0);
 }
 
 .burger-sidebar__text {
@@ -3756,27 +3764,36 @@ textarea {
   -ms-flex-align: center;
   align-items: center;
   padding: 0.25rem 0.25rem 0.25rem 2.25rem;
+  border-radius: 0 1rem 1rem 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: #000;
 }
 .menu-sidebar__link .icon {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   position: relative;
   z-index: 2;
   font-size: 1.5rem;
-  color: #fff;
+  color: #575757;
   transition: color 0.2s;
 }
 @media (any-hover: hover) {
   .menu-sidebar__link {
     cursor: pointer;
   }
-  .menu-sidebar__link:hover .menu-sidebar__name {
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-    background-color: #FF0076;
+  .menu-sidebar__link:hover {
+    color: #fff;
+    background-color: #FA6C35;
+  }
+  .menu-sidebar__link:hover .icon {
+    color: #fff;
   }
 }
 
 .menu-sidebar__name {
-  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
@@ -3784,13 +3801,10 @@ textarea {
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  padding-left: 5.5rem;
+  padding-left: 1rem;
   padding-right: 1.5rem;
   min-width: 13.65rem;
-  -ms-transform: translateX(-150%);
-  transform: translateX(-150%);
   transition: transform 0.4s ease;
-  border-radius: 0 1rem 1rem 0;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   white-space: nowrap;
@@ -3802,7 +3816,7 @@ textarea {
 }
 
 .menu-sidebar__link--activee .icon {
-  color: #FF0076;
+  color: #FA6C35;
 }
 @media (any-hover: hover) {
   .menu-sidebar__link--activee {

@@ -12,14 +12,14 @@ aside(class=page==='barber'?"sidebar sidebar--invert":"sidebar")
 
 				span.burger-sidebar__text MENU
 	
-	//- ul.sidebar__menu.menu-sidebar
-	//- 	- var menus = [{name: 'Главная', icon: 'home'}, {name: 'Услуги', icon: 'wallet'}, {name: 'Барбершоп', icon: 'place'}, {name: 'Art School', icon: 'users'}, {name: 'Записаться', icon: 'calendar'}, {name: 'Сертификаты', icon: 'shield'}, {name: 'Расположение', icon: 'loc'}];
+	ul.sidebar__menu.menu-sidebar
+		- var menus = [{name: 'Главная', icon: 'home'}, {name: 'Услуги', icon: 'wallet'}, {name: 'Барбершоп', icon: 'place'}, {name: 'Art School', icon: 'users'}, {name: 'Записаться', icon: 'calendar'}, {name: 'Сертификаты', icon: 'shield'}, {name: 'Расположение', icon: 'loc'}];
 
-	//- 		each menu in menus
-	//- 			li.menu-sidebar__item
-	//- 				a(href="#" class=menu.name==='Барбершоп' || menu.name==='Art School' || menu.name==='Записаться'?"menu-sidebar__link menu-sidebar__link--activee":"menu-sidebar__link")
-	//- 					+icon(menu.icon)
-	//- 					span.menu-sidebar__name= menu.name
+			each menu in menus
+				li.menu-sidebar__item
+					a(href="#" class=menu.name==='Барбершоп' || menu.name==='Art School' || menu.name==='Записаться'?"menu-sidebar__link menu-sidebar__link--activee":"menu-sidebar__link")
+						+icon(menu.icon)
+						span.menu-sidebar__name= menu.name
 
 
 	a(href="#").sidebar__bottom

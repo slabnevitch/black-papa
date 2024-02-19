@@ -11,11 +11,11 @@
 	display: flex;
 	flex-direction: column;
 	// align-items: center;
-	// background-color: $dark;
 
 	transition: width 0.4s ease-in;
 
 	&.opened{
+		background-color: rgba(#fff, .8);
 		width: rem(289);
 	}
 }
@@ -83,6 +83,13 @@
 	display: flex;
 	flex-direction: column;
 	// align-items: center;
+	transition: transform 0.4s ease;
+	transform: translateX(-300%);
+
+	.sidebar.opened &{
+
+		transform: translateX(0);
+	}
 }
 .burger-sidebar__text{
 	font-weight: 900;
@@ -106,20 +113,32 @@
 	align-items: center;
 	// justify-content: center;
 	padding: rem(5) rem(5) rem(5) rem(45);
+	border-radius: 0 rem(20) rem(20) 0;
+	font-family: 'Inter', sans-serif;
+	font-weight: 500;
+	font-size: rem(15);
+	text-decoration: none;
+	color: #000;
+	
 	.icon {
+		flex-shrink: 0;
 		position: relative;
 		z-index: 2;
 		font-size: rem(30);
-		color: #fff;
+		color: #575757;
 		transition: color 0.2s;
 	}
 
 	@media (any-hover: hover) { //только для устройств с ховером
 			cursor: pointer;
 			&:hover{
-				.menu-sidebar__name{
-					transform: translateX(0);
-					background-color: $accent;
+				// .menu-sidebar__name{
+					// transform: translateX(0);
+					color: #fff;
+					background-color: $orange;
+				// }
+				.icon{
+					color: #fff;
 				}
 			}
 		}
@@ -137,20 +156,20 @@
 
 }
 .menu-sidebar__name {
-	position: absolute;
+	// position: absolute;
 	top: 0;
 	left: 0;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	// justify-content: flex-end;
-	padding-left: rem(110);
+	padding-left: rem(20);
 	padding-right: rem(30);
 	min-width: rem(273);
-		transform: translateX(-150%);
+		// transform: translateX(-150%);
 	
 	transition: transform 0.4s ease;
-	border-radius: 0 rem(20) rem(20) 0;
+	
 	font-family: 'Inter', sans-serif;
 	font-weight: 500;
 	white-space: nowrap;
@@ -165,7 +184,7 @@
 .icon-wallet {}
 .menu-sidebar__link--activee {
 	.icon {
-		color: $accent;
+		color: $orange;
 	}
 	@media (any-hover: hover) { //только для устройств с ховером
 			cursor: pointer;
