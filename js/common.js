@@ -418,7 +418,7 @@
 		}
 		scroll.on('scroll', (func, args, obj) => {
 
-			console.log(func.currentElements);
+			console.log(func.delta.y);
 			if(func.delta.y === 0){
 				document.querySelector('.person-view__cover').classList.remove('covered');
 			}
