@@ -153,6 +153,10 @@
 // });
 
 	if(document.querySelector('.person-view') !== null){
+		function numValue(num) {
+			return num.toString().length > 1 ? num : `0${num}`
+		}
+
 		const thumbSwiper = new Swiper('.person-view__thumb', {
 		  loop: true,
 		  // effect: "slide",
@@ -175,6 +179,14 @@
 		  speed: 0,
 		  // delay: 6000,
 		  // autoplay: true,
+
+		  pagination: {
+	        el: ".swiper-pagination",
+	        type: 'custom',
+	 		renderCustom: (swiper, current, total) => {
+ 				return numValue(current);
+	 		}
+	      },
 
 		   on: {
 		    afterInit: function (swiper) {
@@ -381,19 +393,28 @@
 		  var cardsSwiper = new Swiper('.works-swiper', {
 			observer: true,
 			observeParents: true,
-			centered: 'auto',
-			centeredSlides: true,
+			// centered: 'auto',
+			// loop:true,
+			// centeredSlides: true,
 			//freeMode: true,// в сочетании с mousewheel дает возможность прокручивать стр-цу. после докручивания слайдера до начала или конца колесом мыши
-			slidesPerView: 5,
-			spaceBetween: 30,
+			slidesPerView: 6,
+			spaceBetween: 40,
+			observer: true,
+			observeParents: true,
 
 			  watchSlidesProgress: true,//предотвращает прокрутку слайдов при клике на ссылку внутри слайда
 			  navigation: {
-			  	nextEl: '.swiper-button-next',
-			  	prevEl: '.swiper-button-prev',
+			  	clickable: true,
+			  	nextEl: '.person-works__nav--next',
+			  	prevEl: '.person-works__nav--prev',
 			  },
 
 			});
+
+		  document.querySelector('.person-works__nav--next').onclick = function() {
+		  	console.log('next tick!!')
+		  	cardsSwiper.slideNext();
+		  }
 		}
 		//---------------END Swiper
 
@@ -418,23 +439,26 @@
 		}
 		scroll.on('scroll', (func, args, obj) => {
 
-			console.log(func.delta.y);
+			// console.log(func.currentElements);
 			if(func.delta.y === 0){
 				document.querySelector('.person-view__cover').classList.remove('covered');
 			}
 			if(typeof func.currentElements['hey'] === 'object') {
 				document.querySelector('.person-view__cover').classList.add('covered');
-				setTimeout(function() {
-					cardsSwiper.slideTo(cardsSwiper.slides.length / 2, 3000);
+				// setTimeout(function() {
+				// 	cardsSwiper.slideTo(cardsSwiper.slides.length / 2, 3000);
 
-				}, 1000);
+				// }, 1000);
 			}
 			if(typeof func.currentElements['cards'] === 'object') {
-				[...document.querySelectorAll('.person-works__card')].forEach(card => {
+				console.log('doscrollili!');
+				document.querySelector('.works-swiper').classList.add('expanded');
+				document.querySelector('.person-works__nav').classList.add('hidden');
+				// [...document.querySelectorAll('.person-works__card')].forEach(card => {
 
-					card.classList.remove('flipOutX');
-					card.classList.add('flipInX');
-				});
+				// 	card.classList.remove('flipOutX');
+				// 	card.classList.add('flipInX');
+				// });
 			}
 		});
 

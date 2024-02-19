@@ -71,9 +71,19 @@
   width: 0.9705882353em;
 }
 
+.icon-next {
+  font-size: 0.8rem;
+  width: 8.375em;
+}
+
 .icon-place {
   font-size: 3rem;
   width: 0.9666666667em;
+}
+
+.icon-prev {
+  font-size: 0.8rem;
+  width: 8.375em;
 }
 
 .icon-shape-circle {
@@ -94,9 +104,7 @@
 .icon-wallet {
   font-size: 3rem;
   width: 1.1em;
-}
-
-/*--swiper--*/
+} /*--swiper--*/
 /*!
 Animate.css - http://daneden.me/animate
 Licensed under the MIT license - http://opensource.org/licenses/MIT
@@ -2401,7 +2409,7 @@ textarea {
   -ms-flex-align: center;
   align-items: center;
   height: 2.75rem;
-  border: none;
+  border: 1px solid transparent;
   color: #fff;
   text-decoration: none;
   background-color: #FF0076;
@@ -2423,6 +2431,13 @@ textarea {
 }
 .btn:active {
   background-color: #e6006a;
+}
+.btn-brd {
+  background-color: transparent;
+  border-color: #fff;
+}
+.btn-brd:active, .btn-brd:hover {
+  background-color: transparent;
 }
 .btn-fw {
   width: 100%;
@@ -3005,6 +3020,30 @@ textarea {
   top: 0;
   left: 0;
 }
+.person-view__big .swiper-pagination {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  column-gap: 0.5rem;
+  bottom: auto;
+  top: 12.5rem;
+  left: 2rem;
+  color: #fff;
+  text-align-last: left;
+  font-size: 1.5rem;
+  font-weight: 900;
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+}
+.person-view__big .swiper-pagination:after {
+  content: "";
+  width: 3.75rem;
+  height: 0.05rem;
+  background-color: #fff;
+}
 
 .person-view__box {
   position: relative;
@@ -3092,6 +3131,7 @@ textarea {
 }
 
 .person-view__mini {
+  display: none;
   position: absolute;
   width: 38.125%;
   height: 37.6851851852%;
@@ -3111,16 +3151,24 @@ textarea {
 }
 
 .person-view__handlers {
+  position: absolute;
+  width: 24.1rem;
+  top: 50%;
+  right: 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  gap: 1.2rem;
-  margin-bottom: 1.45rem;
-  padding-right: 2.6rem;
+  gap: 3rem;
+  padding-bottom: 0.95rem;
+  padding-right: 4.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 0.65rem;
+  z-index: 3;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .person-view__prev {
@@ -3182,8 +3230,8 @@ textarea {
 
 .name-person-view {
   position: absolute;
-  bottom: 3rem;
-  left: 8.2rem;
+  bottom: 2.5rem;
+  left: 4.7rem;
   z-index: 2;
   font-family: "Inter", sans-serif;
   font-weight: 900;
@@ -3191,8 +3239,8 @@ textarea {
 }
 
 .name-person-view__first {
+  color: #fff;
   line-height: 1;
-  color: #FF0076;
   font-size: 7.5rem;
 }
 @media (max-width: 109.375em) {
@@ -3200,50 +3248,35 @@ textarea {
     font-size: clamp( 2rem , 0.9rem  +  6.875vw , 7.5rem );
   }
 }
-@media only screen and (max-width: 112.5em) {
-  .name-person-view__first {
-    font-size: 3.5rem;
-  }
-}
-@media only screen and (max-width: 112.5em) and (max-width: 109.375em) {
-  .name-person-view__first {
-    font-size: clamp( 1.5rem , 1.1rem  +  2.5vw , 3.5rem );
-  }
-}
 
 .name-person-view__last {
   animation-delay: 0.2s;
   line-height: 1;
-  color: #fff;
-  font-size: 7.5rem;
+  color: #FF0076;
+  font-size: 5rem;
 }
 @media (max-width: 109.375em) {
   .name-person-view__last {
-    font-size: clamp( 0rem , -1.5rem  +  9.375vw , 7.5rem );
-  }
-}
-@media only screen and (max-width: 112.5em) {
-  .name-person-view__last {
-    font-size: 3.5rem;
-    font-size: 3.5rem;
-  }
-}
-@media only screen and (max-width: 112.5em) and (max-width: 109.375em) {
-  .name-person-view__last {
-    font-size: clamp( 1.5rem , 1.1rem  +  2.5vw , 3.5rem );
+    font-size: clamp( 0rem , -1rem  +  6.25vw , 5rem );
   }
 }
 
 .name-person-view__text {
   margin-top: 0.75rem;
-  padding-left: 1rem;
-  max-width: 33.25rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #fff;
+  text-align: justify;
+  font-size: 1rem;
+   max-width: 31.75rem;
 }
-@media only screen and (max-width: 112.5em) {
+@media (max-width: 109.375em) {
   .name-person-view__text {
-    max-width: 20rem;
+    font-size: clamp( 0.5rem , 0.4rem  +  0.625vw , 1rem );
+  }
+}
+@media (max-width: 109.375em) {
+  .name-person-view__text {
+     max-width: clamp( 25rem , 23.65rem  +  8.4375vw , 31.75rem );
   }
 }
 
@@ -3259,27 +3292,27 @@ textarea {
   margin-bottom: 1.75rem;
 }
 
-.person-view__scroll {
-  padding: 0;
-  background-color: transparent;
-  border: none;
+.person-view__buttons {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: end;
-  align-items: flex-end;
-  font-family: "Railway", sans-serif;
-  font-weight: 500;
-  font-size: 1.2rem;
-  color: #fff;
-  text-decoration: underline;
-  white-space: nowrap;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
 }
-.person-view__scroll .icon-download {
-  margin-left: 0.6rem;
-  position: relative;
-  top: -0.05rem;
-  font-size: 1.25rem;
-  color: #fff;
+.person-view__buttons .btn {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  -ms-flex: 1 1 50%;
+  flex: 1 1 50%;
+}
+@media only screen and (max-width: 112.5em) {
+  .person-view__buttons .btn {
+    font-size: 0.9rem;
+  }
+}
+
+.person-view__scroll {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 @media (any-hover: hover) {
   .person-view__scroll {
@@ -3303,6 +3336,23 @@ textarea {
   border-left: 3px solid;
 }
 
+.works-swiper.expanded .swiper-wrapper {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 1rem;
+}
+.works-swiper.expanded .swiper-wrapper .person-works__card {
+  -ms-flex: 1 1 calc(25% - 2rem);
+  flex: 1 1 calc(25% - 2rem);
+}
+.works-swiper.expanded .swiper-wrapper .person-works__card {
+  margin: 0 !important;
+}
+
 .person-works__cards {
   padding-top: 0.75rem;
   padding-bottom: 5.35rem;
@@ -3324,16 +3374,16 @@ textarea {
 }
 
 .person-works__card {
-  aspect-ratio: 262/163;
-  border-radius: 3.5rem;
+  aspect-ratio: 200/170;
   background-color: #D9D9D9;
+  overflow: hidden;
+  transition: all 0.4s;
 }
 
 .person-works__wrapper {
   display: -ms-flexbox;
   display: flex;
 }
-
 .person-works__text {
   display: -ms-flexbox;
   display: flex;
@@ -3367,6 +3417,70 @@ textarea {
 .works-swiper, .person-works__slider {
   margin-bottom: 2rem;
   min-width: 0;
+}
+
+.person-view__lattice {
+  position: absolute;
+  z-index: 2;
+}
+.person-view__lattice:first-of-type {
+  left: 0;
+  top: 0;
+  width: 19.6354166667%;
+  aspect-ratio: 377/614;
+}
+.person-view__lattice:nth-of-type(2) {
+  right: 0;
+  top: 0;
+  width: 40.3125%;
+  aspect-ratio: 774/1067;
+}
+.person-view__lattice:nth-of-type(2) img {
+  object-position: right bottom;
+}
+
+.person-view__line {
+  position: absolute;
+  height: 0.05rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 2;
+}
+.person-view__line--1 {
+  left: 0;
+  bottom: 3.85rem;
+  width: 2.5rem;
+}
+.person-view__line--2 {
+  right: 0;
+  bottom: 3.85rem;
+  width: 10.5729166667%;
+}
+.person-view__line--3 {
+  top: 0;
+  right: 9.5rem;
+  height: 85.2777777778%;
+  width: 0.05rem;
+}
+
+.person-works__nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  column-gap: 0.6rem;
+}
+.person-works__nav.hidden {
+  display: none;
+}
+
+.person-works__butt {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.person-works__butt .icon {
+  font-size: 0.368rem;
 }
 
 /*--------------------services----------------------*/
@@ -3581,6 +3695,9 @@ textarea {
   width: 100%;
   padding-right: 0.5rem;
 }
+.sidebar--invert .burger-sidebar svg path {
+  fill: #fff;
+}
 
 .burger-sidebar__inner {
   padding: 0;
@@ -3620,6 +3737,9 @@ textarea {
   font-weight: 900;
   font-size: 1rem;
   font-family: "Raleway", sans-serif;
+}
+.sidebar--invert .burger-sidebar__text {
+  color: #fff;
 }
 
 .menu-sidebar__item {
@@ -3699,6 +3819,9 @@ textarea {
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   margin-bottom: 1.2rem;
+}
+.sidebar--invert .sidebar__bottom svg path {
+  fill: #fff;
 }
 
 /*--------------------END sidebar----------------------*/
