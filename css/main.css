@@ -3335,42 +3335,17 @@ textarea {
   padding-left: 1.85rem;
   border-left: 3px solid;
 }
-
-.works-swiper.expanded .swiper-wrapper {
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
+.person-works__folio .swiper.expanded .swiper-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(13rem, 1fr))[auto-fit];
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   column-gap: 2rem;
   row-gap: 1rem;
 }
-.works-swiper.expanded .swiper-wrapper .person-works__card {
-  -ms-flex: 1 1 calc(25% - 2rem);
-  flex: 1 1 calc(25% - 2rem);
-}
-.works-swiper.expanded .swiper-wrapper .person-works__card {
-  margin: 0 !important;
-}
-
-.person-works__cards {
-  padding-top: 0.75rem;
-  padding-bottom: 5.35rem;
-  display: -ms-flexbox;
-  display: flex;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  column-gap: 1.5rem;
-  row-gap: 2.4rem;
-}
-.person-works__cards .person-works__card {
-  -ms-flex: 1 1 calc(20% - 1.5rem);
-  flex: 1 1 calc(20% - 1.5rem);
-}
-.person-works__cards .person-works__card {
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+.person-works__folio .swiper.expanded .swiper-wrapper .person-works__card {
+  width: auto !important;
+  margin-right: 0 !important;
 }
 
 .person-works__card {

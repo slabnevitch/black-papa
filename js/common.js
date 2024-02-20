@@ -157,6 +157,13 @@
 			return num.toString().length > 1 ? num : `0${num}`
 		}
 
+		var sliderArrowDelay = 2500,
+			swiperDirection = null,
+			slideChangeInterval,
+			namesIndex = 0,
+			worksSliders = document.querySelectorAll('.person-works__slider'),
+			cardsSwiper = undefined;
+
 		const swiper = new Swiper('.person-view__big', {
 		  loop: true,
 		  effect: 'fade',
@@ -183,19 +190,16 @@
 		      swiper.slidesEl.querySelector('.swiper-slide-next').style.zIndex = '98';
 		      swiper.slidesEl.querySelector('.swiper-slide-active').classList.add('zoom-out');
 		      animateNameShow(swiper.activeIndex);
-
 		    },
 		  }
 		  
 		});
-		const sliderArrowDelay = 2500;
-		let swiperDirection = null;
-		let slideChangeInterval;
-		var namesIndex = 0;
+			    console.log(swiper)
+		
+		      setCurrentWorksSlider(0);
 
 		function animateNameShow(animatedSide){
 			setTimeout(function() {
-			      
 				[...swiper.slides[animatedSide].querySelectorAll('.name-person-view__first, .name-person-view__last')]
 				.forEach((slide) => {
 					
@@ -224,6 +228,19 @@
 
 		}
 
+		function setCurrentWorksSlider(ind){//выбор слайдера с работами текущего мастера
+			console.log('ind in setCurrentWorksSlider ' + ind)
+			Array.prototype.slice.call(worksSliders).forEach(function(sliderContainer, i) {
+				console.log(sliderContainer);
+				if(ind === i){
+					sliderContainer.classList.remove('hidden');
+					initWorksSwiper(sliderContainer.querySelector('.swiper'));
+				}else{
+					sliderContainer.classList.add('hidden');
+				}
+			});
+		}
+
 		function swiperAutoplay(){
 		  slideChangeInterval = setInterval(() => {
 		    sliderMoove('forward');
@@ -242,6 +259,7 @@
   				 if(namesIndex < 0){
   				 	namesIndex = swiper.slides.length - 1;
   				 }
+			setCurrentWorksSlider(namesIndex);//выбор текущего слайдера работ
 			  sliderMoove('back');
 			 
 			  e.target.disabled = true;
@@ -260,7 +278,9 @@
  				if(namesIndex > swiper.slides.length - 1){
   				 	namesIndex = 0;
   				 }
-			  sliderMoove('forward');
+
+  				 setCurrentWorksSlider(namesIndex);//выбор текущего слайдера работ
+  				 sliderMoove('forward');
 
 			  e.target.disabled = true;
 			  setTimeout(() => {
@@ -305,7 +325,7 @@
 		}
 
 		swiper.on('transitionStart', function (swiper) {
-		  console.log('slideNextTransitionStart');
+		  // console.log('slideNextTransitionStart');
 
 		});
 		swiper.on('transitionEnd', function (swiper) {
@@ -317,7 +337,7 @@
 		  changeSlidersIndex(swiperDirection);
 		});
 		swiper.on('transitionEnd', function (swiper) {
-		  console.log('transitionEnd');
+		  // console.log('transitionEnd');
 		});
 
 		function changeSlidersIndex(direction){
@@ -367,35 +387,64 @@
 		  }
 		}
 
-		//---------------Swiper
-		if(document.querySelector('.works-swiper') !== null){
-		  var cardsSwiper = new Swiper('.works-swiper', {
-			observer: true,
-			observeParents: true,
-			// centered: 'auto',
-			// loop:true,
-			// centeredSlides: true,
-			//freeMode: true,// в сочетании с mousewheel дает возможность прокручивать стр-цу. после докручивания слайдера до начала или конца колесом мыши
-			slidesPerView: 6,
-			spaceBetween: 40,
-			observer: true,
-			observeParents: true,
 
-			  watchSlidesProgress: true,//предотвращает прокрутку слайдов при клике на ссылку внутри слайда
-			  navigation: {
-			  	clickable: true,
-			  	nextEl: '.person-works__nav--next',
-			  	prevEl: '.person-works__nav--prev',
-			  },
+		function initWorksSwiper(currentSwiperElement) {//currentSwiper -- DOM element
+		    if(cardsSwiper == undefined) {            
+		        cardsSwiper = new Swiper(currentSwiperElement, {
+					observer: true,
+					observeParents: true,
+					// centered: 'auto',
+					// loop:true,
+					// centeredSlides: true,
+					//freeMode: true,// в сочетании с mousewheel дает возможность прокручивать стр-цу. после докручивания слайдера до начала или конца колесом мыши
+					slidesPerView: 6,
+					spaceBetween: 40,
+					observer: true,
+					observeParents: true,
 
-			});
+					  watchSlidesProgress: true,//предотвращает прокрутку слайдов при клике на ссылку внутри слайда
+					  navigation: {
+					  	clickable: true,
+					  	nextEl: '.person-works__nav--next',
+					  	prevEl: '.person-works__nav--prev',
+					  },
+				});
 
-		  document.querySelector('.person-works__nav--next').onclick = function() {
-		  	console.log('next tick!!')
-		  	cardsSwiper.slideNext();
-		  }
+				document.querySelector('.person-works__nav--next').addEventListener('click', worksSliderHandler);
+		    } else if (cardsSwiper != undefined) {
+		        document.querySelector('.person-works__nav--next').removeEventListener('click', worksSliderHandler);
+		        cardsSwiper.destroy();
+		        cardsSwiper = undefined;
+		        cardsSwiper = new Swiper(currentSwiperElement, {
+					observer: true,
+					observeParents: true,
+					// centered: 'auto',
+					// loop:true,
+					// centeredSlides: true,
+					//freeMode: true,// в сочетании с mousewheel дает возможность прокручивать стр-цу. после докручивания слайдера до начала или конца колесом мыши
+					slidesPerView: 6,
+					spaceBetween: 40,
+					observer: true,
+					observeParents: true,
+
+					  watchSlidesProgress: true,//предотвращает прокрутку слайдов при клике на ссылку внутри слайда
+					  navigation: {
+					  	clickable: true,
+					  	nextEl: '.person-works__nav--next',
+					  	prevEl: '.person-works__nav--prev',
+					  },
+				});
+				document.querySelector('.person-works__nav--next').addEventListener('click', worksSliderHandler);
+		    }        
 		}
-		//---------------END Swiper
+
+
+		function worksSliderHandler() {
+			console.log('next tick!!');
+			if(cardsSwiper !== undefined){
+				cardsSwiper.slideNext();
+			}
+		}
 
 		const scroll = new LocomotiveScroll({
 			el: document.querySelector('[data-scroll-container]'),
@@ -404,26 +453,41 @@
 		    // resetNativeScroll: true
 		    // offset: ['100%', 0]
 		});
-		document.querySelector('.person-view__scroll').onclick = function() {
-			console.log(document.querySelector('.person-works__slider').getBoundingClientRect().top)
-			var coord = document.querySelector('.person-works__slider').getBoundingClientRect().top;
-			scroll.scrollTo(document.querySelector('.person-works__slider').getBoundingClientRect().height, {
-				offset: 50, 
-				duration: 500,
-				callback: function() {
-					
-				}
-			});
+		Array.prototype.slice.call(document.querySelectorAll('.person-view__scroll')).forEach(function(button) {
+			button.onclick = function() {
+			 	console.log(document.querySelector('.person-works__slider:not(.hidden)').querySelector('.swiper').classList.contains('expanded'));
+				 if(!document.querySelector('.person-works__slider:not(.hidden)').querySelector('.swiper').classList.contains('expanded')){
+					document.querySelector('.person-works__nav').classList.remove('hidden');
+				 }
+				var coord = document.querySelector('.person-works__slider:not(.hidden)').getBoundingClientRect().top;
+				scroll.scrollTo(document.querySelector('.person-works__slider:not(.hidden)').getBoundingClientRect().height, {
+					offset: 50, 
+					duration: 500,
+					callback: function() {
+						
+					}
+				});
+			}
 
-		}
+		});
+			// console.log(document.querySelector('.person-works__slider').getBoundingClientRect().top)
+
+
 		scroll.on('scroll', (func, args, obj) => {
 
 			// console.log(func.currentElements);
 			if(func.delta.y === 0){
 				document.querySelector('.person-view__cover').classList.remove('covered');
+
 			}
 			if(typeof func.currentElements['hey'] === 'object') {
 				document.querySelector('.person-view__cover').classList.add('covered');
+				if(!document.querySelector('.person-works__slider:not(.hidden)').querySelector('.swiper').classList.contains('expanded')){
+					document.querySelector('.person-works__nav').classList.remove('hidden');
+				 }else{
+					document.querySelector('.person-works__nav').classList.add('hidden');
+
+				 }
 				// setTimeout(function() {
 				// 	cardsSwiper.slideTo(cardsSwiper.slides.length / 2, 3000);
 
@@ -431,8 +495,14 @@
 			}
 			if(typeof func.currentElements['cards'] === 'object') {
 				console.log('doscrollili!');
-				document.querySelector('.works-swiper').classList.add('expanded');
-				document.querySelector('.person-works__nav').classList.add('hidden');
+				document.querySelector('.person-works__slider:not(.hidden) .swiper').classList.add('expanded');
+				
+				// if(document.querySelector('.person-works__slider:not(.hidden)').querySelector('.swiper').classList.has('expanded')){
+					// if(!document.querySelector('.person-works__nav').classList.has('hidden')){
+						document.querySelector('.person-works__nav').classList.add('hidden');
+					// }
+
+				// }
 				// [...document.querySelectorAll('.person-works__card')].forEach(card => {
 
 				// 	card.classList.remove('flipOutX');

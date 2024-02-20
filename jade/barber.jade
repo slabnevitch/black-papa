@@ -75,14 +75,28 @@ block content
 						// .person-works__p Является Pro.Barber
 				
 				
-				.person-works__folio
-					.person-works__slider(data-scroll data-scroll-id="hey")
+				.person-works__folio(data-scroll data-scroll-id="hey")
+					.person-works__slider
+						+swiper('works-swiper', false, false, false)
+							- for(var i=0; i<5; i++)
+								.swiper-slide.person-works__card._fit
+									img._fit-img(src="img/barbers/works/1.jpg" alt="alt")
+								.swiper-slide.person-works__card._fit
+									img._fit-img(src="img/barbers/works/2.jpg" alt="alt")
+
+					.person-works__slider.hidden
 						+swiper('works-swiper', false, false, false)
 							- for(var i=0; i<10; i++)
 								.swiper-slide.person-works__card._fit
-									img._fit-img(src="img/barbers/works/1.jpg" alt="alt")
-								swiper-slide.person-works__card._fit
-									img._fit-img(src="img/barbers/works/2.jpg" alt="alt")
+									img._fit-img(src="img/history/3.jpg" alt="alt")
+								.swiper-slide.person-works__card._fit
+									img._fit-img(src="img/history/4.jpg" alt="alt")
+
+					.person-works__slider.hidden
+						+swiper('works-swiper', false, false, false)
+							- for(var i=0; i<10; i++)
+								.swiper-slide.person-works__card._fit
+									img._fit-img(src="img/barbers/1.jpg" alt="alt")
 					
 					.person-works__cards(data-scroll data-scroll-id="cards" data-scroll-offset="-50%, -50%")
 						// - for(var i=0; i<10; i++)
