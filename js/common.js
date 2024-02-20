@@ -157,18 +157,6 @@
 			return num.toString().length > 1 ? num : `0${num}`
 		}
 
-		const thumbSwiper = new Swiper('.person-view__thumb', {
-		  loop: true,
-		  // effect: "slide",
-		  speed: 2000,
-		  // initialSlide: 1,
-		  parallax: true,
-		  effect: 'fade',
-		  allowTouchMove: false,
-		  fadeEffect: {
-		    crossFade: true
-		  }
-		});
 		const swiper = new Swiper('.person-view__big', {
 		  loop: true,
 		  effect: 'fade',
@@ -204,8 +192,6 @@
 		let swiperDirection = null;
 		let slideChangeInterval;
 		var namesIndex = 0;
-
-		thumbSwiper.slideTo(1);
 
 		function animateNameShow(animatedSide){
 			setTimeout(function() {
@@ -295,13 +281,6 @@
 		 });
 		  
 		  changeSlidersIndex(direction);
-		  if(direction === 'forward'){
-		    thumbSwiper.slideNext();
-		  }else{
-		    // console.log(swiper.activeIndex)
-		    thumbSwiper.slidePrev();
-		    // thumbSwiper.slideTo(swiper.activeIndex + 1);
-		  }
 		  
 		  setTimeout(() => {
 		      direction === 'forward' ? swiper.slideNext() : swiper.slidePrev();

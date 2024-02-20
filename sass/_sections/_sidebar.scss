@@ -103,6 +103,7 @@
 }
 .menu-sidebar__item {
 	list-style-type: none;
+	max-width: rem(231);
 }
 .menu-sidebar__link {
 	width: 100%;
@@ -165,9 +166,6 @@
 	// justify-content: flex-end;
 	padding-left: rem(20);
 	padding-right: rem(30);
-	min-width: rem(273);
-		// transform: translateX(-150%);
-	
 	transition: transform 0.4s ease;
 	
 	font-family: 'Inter', sans-serif;

@@ -3752,6 +3752,7 @@ textarea {
 
 .menu-sidebar__item {
   list-style-type: none;
+  max-width: 11.55rem;
 }
 
 .menu-sidebar__link {
@@ -3803,7 +3804,6 @@ textarea {
   align-items: center;
   padding-left: 1rem;
   padding-right: 1.5rem;
-  min-width: 13.65rem;
   transition: transform 0.4s ease;
   font-family: "Inter", sans-serif;
   font-weight: 500;
