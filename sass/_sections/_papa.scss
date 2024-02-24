@@ -24,6 +24,7 @@
 	padding-left: rem(30);
 	padding-bottom: rem(30);
 	outline: 1px solid red;
+	    break-inside: avoid;
 
 	&:before{
 		content: '';
@@ -53,7 +54,7 @@
 	// }
 	&:last-child{
 		&:after{
-			// display: none;
+			display: none;
 		}
 		
 	}

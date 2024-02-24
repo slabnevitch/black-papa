@@ -3035,6 +3035,7 @@ textarea {
   padding-left: 1.5rem;
   padding-bottom: 1.5rem;
   outline: 1px solid red;
+  break-inside: avoid;
 }
 .history-papa__step:before {
   content: "";
@@ -3056,6 +3057,10 @@ textarea {
   display: block;
   background-color: #000;
 }
+.history-papa__step:last-child:after {
+  display: none;
+}
+
 /*--------------------END papa----------------------*/
 .person-view {
   height: 100vh;

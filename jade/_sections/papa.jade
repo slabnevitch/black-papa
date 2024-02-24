@@ -16,8 +16,9 @@ section.papa._sect
 				.history-papa__info-block
 					.history-papa__title Современный  подход
 					p.history-papa__descr Использование новейших методов и технологий в процессе стрижки и ухода. Использование новейших методов и технологий в процессе стрижки и ухода.
-			
+			- var steps = ['Конфигурация приложения','API приложения','Глобальное API','Options API','Свойства экземпляра','Методы экземпляра','Директивы','Специальные атрибуты','Встроенные компоненты','API реактивности', 'Однофайловые компоненты.', 'Composition api'];
 			.history-papa__steps
 				ul.history-papa__list
-					- for (var i=0; i < 12; i++)
-						li.history-papa__step= "step" + (i+1)
+					each step in steps
+						li.history-papa__step= step
+					//- - for (var i=0; i < 12; i++)
