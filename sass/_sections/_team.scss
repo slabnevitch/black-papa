@@ -1,0 +1,19 @@
+/*--------------------team----------------------*/
+.team-cards{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	// grid-template-columns: repeat(auto-fit, minmax(rem(350), 1fr));
+	column-gap: rem(43);
+	row-gap: rem(15);
+	text-align: center;
+}
+.team-card__img{
+	aspect-ratio: 515/688;
+	overflow: hidden;
+	border-radius: rem(30);
+	margin-bottom: rem(44);
+}
+.team-card__btn{
+	max-width: rem(380);
+}
+/*--------------------END team----------------------*/ 

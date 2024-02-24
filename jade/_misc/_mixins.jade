@@ -1,10 +1,10 @@
-mixin title(title='', sub='', text='')
+mixin title(title='', sub='8.8.7 art barbers', text='')
 	.title-block
 		h2
 			.title-block__title= title
 			.title-block__div= sub
-		
-		p.title-block__text= text
+		if text != ''
+			p.title-block__text= text
 
 mixin icon(name,mod)
 	- mod = mod || ''

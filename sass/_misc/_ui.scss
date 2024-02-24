@@ -67,12 +67,17 @@
   text-transform: uppercase;
 }
 .title-block__div{
-  margin-bottom: rem(15);
   font-family: "Orbitron", sans-serif;
   @include adaptive-value-rem('font-size', 96, 30, $maxWidth, $minWidth, 1);
   font-weight: 700;
   color: $accent;
   text-transform: uppercase;
+
+  &:not(:last-child){
+    margin-bottom: rem(15);
+    
+  }
+
 }
 .title-block__text{
   max-width: rem(573);

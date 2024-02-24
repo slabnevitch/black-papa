@@ -158,15 +158,24 @@ textarea{
 	padding-right: rem(math.div($containerPaddings, 2));
 	max-width: rem($maxContainerWidth);
 	// outline: 1px solid;
-	@include max-screen(em($maxWidth)){
-		padding-left: rem(120);
-		padding-right: prc(84, $maxWidth);
-		
+	&:not(.wrapper-mini){
+		@include max-screen(em($maxWidth)){
+			padding-left: rem(120);
+			padding-right: prc(84, $maxWidth);
+			
+		}
+
 	}
 
 }
 .wrapper-mini{
 	max-width: rem(1220);
+
+	@include max-screen(em(1430)){
+		padding-left: rem(120);
+		padding-right: prc(84, $maxWidth);
+			
+	}
 }
 // classes for smartgrid(c) structure
 // .wrapper-smart{

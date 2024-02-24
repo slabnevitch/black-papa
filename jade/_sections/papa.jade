@@ -1,0 +1,23 @@
+section.papa._sect
+	.papa__wrapper.wrapper-mini
+		+title('ктО ТАКОЙ', 'BLACK PAPA?', '')
+
+		.text-columns
+			.text-column Наш логотип представляет из себя голову Моаи, символизирующую целеустремленность и мимику, отражающую внешние мнения.
+		
+			.text-column Этот символический образ говорит о нашей целеустремленности и способности адаптироваться к изменяющимся обстоятельствам.
+
+		.papa__img
+			img(src="img/whatshide.jpg" alt="alt")
+
+	.__wrapper
+		.papa__history.history-papa
+			.history-papa__info
+				.history-papa__info-block
+					.history-papa__title Современный  подход
+					p.history-papa__descr Использование новейших методов и технологий в процессе стрижки и ухода. Использование новейших методов и технологий в процессе стрижки и ухода.
+			
+			.history-papa__steps
+				ul.history-papa__list
+					- for (var i=0; i < 12; i++)
+						li.history-papa__step= "step" + (i+1)

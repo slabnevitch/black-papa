@@ -1,0 +1,11 @@
+section.team._sect
+	.team__wrapper.wrapper-mini
+		+title('КОМАНДА')
+	.team__wrapper
+		.team-cards
+			- for (var i=0; i < 3; i++)
+				.team-card
+					.team-card__img._fit
+						img._fit-img(src="img/barbers/team"+(i+1)+".jpg" alt="alt")
+					
+					a(href="#").btn.btn-fw.team-card__btn ПОДРОБНЕЕ
