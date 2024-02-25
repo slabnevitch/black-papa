@@ -1665,6 +1665,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .swiper-centered.swiper-horizontal > .swiper-wrapper > .swiper-slide:first-child {
+  -webkit-margin-start: var(--swiper-centered-offset-before);
   margin-inline-start: var(--swiper-centered-offset-before);
 }
 
@@ -1675,6 +1676,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .swiper-centered.swiper-vertical > .swiper-wrapper > .swiper-slide:first-child {
+  -webkit-margin-before: var(--swiper-centered-offset-before);
   margin-block-start: var(--swiper-centered-offset-before);
 }
 
@@ -2592,6 +2594,25 @@ textarea {
   left: 0;
 }
 
+.decor-angle {
+  position: absolute;
+  height: 63.9534883721%;
+  width: 10.6857142857%;
+  border: 1px solid #000;
+}
+.decor-angle--left {
+  bottom: 0;
+  left: 0;
+  border-top: none;
+  border-right: none;
+}
+.decor-angle--rigth {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
 /*--------------------END ui----------------------*/
 /*--------------------barber-become----------------------*/
 .barber-become {
@@ -3017,24 +3038,65 @@ textarea {
   width: 100%;
 }
 
-.history-papa {
+.papa__history {
+  padding-top: 7.5rem;
+}
+@media (max-width: 109.375em) {
+  .papa__history {
+    padding-top: clamp( 1rem , -0.3rem  +  8.125vw , 7.5rem );
+  }
+}
+
+.history-papa__content {
+  position: relative;
+  padding: 1rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 36.1714285714% 1fr;
   grid-template-columns: 36.1714285714% 1fr;
 }
 
-.history-papa__list {
-  columns: 3;
-  gap: 0.75rem;
+.history-papa__info {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.history-papa__info-block {
+  max-width: 79.1469194313%;
+  padding-bottom: 0.5rem;
+}
+
+.history-papa__title {
+  padding-bottom: 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  border-bottom: 2px solid #000;
+}
+
+.history-papa__descr {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #808080;
+}
+
+.history-papa__steps {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 0.75rem;
 }
 
 .history-papa__step {
   list-style-type: none;
   position: relative;
   padding-left: 1.5rem;
-  padding-bottom: 1.5rem;
-  outline: 1px solid red;
   break-inside: avoid;
 }
 .history-papa__step:before {
@@ -3050,12 +3112,15 @@ textarea {
 .history-papa__step:after {
   content: "";
   position: absolute;
-  left: 0.325rem;
-  top: 0.65rem;
+  left: 0.3rem;
+  top: 0.9rem;
   width: 0.05rem;
   height: calc(100% - 0.35rem);
   display: block;
   background-color: #000;
+}
+.history-papa__step:not(:last-child) {
+  padding-bottom: 1.5rem;
 }
 .history-papa__step:last-child:after {
   display: none;

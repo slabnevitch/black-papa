@@ -163,6 +163,24 @@
     left: 0;
   }
 }
+.decor-angle{
+  position: absolute;
+  height: prc(220,344);
+  width: prc(187, 1750);
+  border: 1px solid #000;
+  &--left{
+    bottom: 0;
+    left: 0;
+    border-top: none;
+    border-right: none;
+  }
+  &--rigth{
+    top: 0;
+    right: 0;
+    border-left: none;
+    border-bottom: none;
+  }
+}
 // .toggle-mnu{
 // 	position: fixed;
 // 	right: rem(30);

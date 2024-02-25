@@ -12,13 +12,31 @@ section.papa._sect
 
 	.__wrapper
 		.papa__history.history-papa
-			.history-papa__info
-				.history-papa__info-block
-					.history-papa__title Современный  подход
-					p.history-papa__descr Использование новейших методов и технологий в процессе стрижки и ухода. Использование новейших методов и технологий в процессе стрижки и ухода.
-			- var steps = ['Конфигурация приложения','API приложения','Глобальное API','Options API','Свойства экземпляра','Методы экземпляра','Директивы','Специальные атрибуты','Встроенные компоненты','API реактивности', 'Однофайловые компоненты.', 'Composition api'];
-			.history-papa__steps
-				ul.history-papa__list
-					each step in steps
-						li.history-papa__step= step
+			.history-papa__content
+				.decor-angle.decor-angle--left
+				.decor-angle.decor-angle--rigth
+				.history-papa__info
+					.history-papa__info-block
+						.history-papa__title Современный
+							br
+							| подход
+						p.history-papa__descr Использование новейших методов и технологий в процессе стрижки и ухода. Использование новейших методов и технологий в процессе стрижки и ухода.
+				- var steps = ['Конфигурация приложения','API приложения','Глобальное API','Options API','Свойства экземпляра','Методы экземпляра','Директивы','Специальные атрибуты','Встроенные компоненты','API реактивности', 'Однофайловые компоненты.', 'Composition api'];
+
+				.history-papa__steps
+					//- - for (var i=0; i < 3; i++)
+					ul.history-papa__list
+						each step, ind in steps
+							if ind <  4
+								li.history-papa__step= step
+
+					ul.history-papa__list
+						each step, ind in steps
+							if ind > 3 && ind < 8
+								li.history-papa__step= step
+
+					ul.history-papa__list
+						each step, ind in steps
+							if ind > 7 && ind < 12
+								li.history-papa__step= step
 					//- - for (var i=0; i < 12; i++)
